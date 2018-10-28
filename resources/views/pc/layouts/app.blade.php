@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="@section('keywords'){{ config('global.keywords') }}@show">
+    <meta name="description" content="@section('description'){{ config('global.description') }}@show">
+    <meta name="author" content="{{ config('global.author') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Laravel Shop') - Laravel 电商教程</title>
+    <title>@section('title'){{ config('global.title') }}@show</title>
 
     {{--bootstrap
     <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">--}}
 
     <!-- 样式 -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/bitbug_favicon.ico">
 
     <script src="{{ asset('libs/jQuery/jQuery-2.2.0.min.js') }}"></script>
 </head>

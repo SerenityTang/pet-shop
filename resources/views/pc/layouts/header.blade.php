@@ -2,13 +2,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <a href="" class="logo pull-left"><img src="" width="190" height="30" /></a>
+                <a href="" class="logo pull-left"><img src="/imgs/imoop-logo.png" width="190" height="50" /></a>
 
                 <!-- 用户栏 -->
-                <div class="aw-user-nav active hidden-xs hidden-sm">
+                <div class="aw-user-nav  active hidden-xs hidden-sm">
                     <!-- 登录&注册栏 -->
-                    <a  href="{{ url('') }}">登录</a> /
-                    <a  href="{{ url('') }}">注册</a>
+                    <a  href="{{ url('') }}" class="btn btn-hollow active">登录</a>
+                    <a  href="{{ url('') }}" class="btn btn-primary">注册</a>
                     <!-- end 登录&注册栏 -->
                 </div>
                 <!-- end 用户栏 -->
@@ -16,7 +16,7 @@
                 <!-- 搜索框 -->
                 <!-- end 搜索框 -->
 
-                <div class="aw-top-nav navbar ">
+                <div class="aw-top-nav navbar">
                     <nav class="hidden-xs hidden-sm">
                         <ul class="nav navbar-nav">
                             <li>

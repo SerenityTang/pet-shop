@@ -17,21 +17,15 @@ body {
   height: 70px;
   border-bottom: 1px solid #eceff1;
 }
-
 .header .logo {
   display: block;
-  margin: 19px 10px 0 0;
+  margin: 10px 10px 0 0;
 }
 
+//登录注册按钮
 .header .aw-user-nav.active {
-  width: 120px;
-  line-height: 35px;
-  background-color: #4fb1f7;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
+  background: transparent;
 }
-
 .header .aw-user-nav {
   float: right;
   position: relative;
@@ -41,20 +35,59 @@ body {
   background: #f5f5f5;
   border-radius: 2px;
 }
-
 .header .aw-user-nav.active a {
   color: #fff;
 }
+.header .aw-user-nav.active a:hover {
+  text-decoration: none;
+}
+.header .aw-user-nav.active .btn {
+  height: 32px;
+  line-height: 32px;
+  margin: 0 0 0 10px;
+}
+.header .aw-user-nav .btn {
+  float: left;
+  width: 70px;
+  height: 30px;
+  line-height: 18px;
+  margin: 12px 0 0 10px;
+}
+.btn-hollow.active {
+  color: #4fb1f7 !important;
+  border-color: #4fb1f7;
+}
+.btn:active, .btn.active {
+  box-shadow: none;
+}
+.btn {
+  height: 32px;
+  min-width: 80px;
+  padding: 0 15px;
+  line-height: 32px;
+  border: none;
+  box-shadow: none;
+  border-radius: 30px;
+  font-synthesis: none;
+  border: 1px solid #fff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga', 'kern';
+}
+.btn-primary, .label-primary, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:hover {
+  background-color: #4fb1f7;
+  border-color: #4fb1f7;
+}
 
+//中间菜单导航
 .header .navbar {
   float: right;
   margin: 0 5px 0 10px;
 }
-
 .header .navbar-nav > li {
   position: relative;
 }
-
 .header .navbar-nav > li > a {
   height: 68px;
   margin: 0 10px;
@@ -69,66 +102,57 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: 'liga', 'kern';
+  position: relative;
+}
+.header .navbar-nav > li > a:after {
+  content: "";
+  width: 0;
+  height: 5px;
+  background: #4fb1f7;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transition: all .6s;
+}
+.header .navbar-nav > li > a:hover:after {
+  left: 0%;
+  width: 100%;
+  /*border-bottom: 5px solid #4fb1f7;*/
 }
 
-.header .navbar-nav > li > a:hover {
-  border-bottom: 5px solid #4fb1f7;
-}
 
-a, a:visited {
-  color: #4fb1f7;
-  cursor: pointer;
-}
-
-//
+// 页面底部
 .footer {
   background-color: #27374d;
 }
-
 .footer .sitemap {
   padding: 50px 0;
   background: #27374d;
   color: #728398;
 }
-
 .footer .sitemap dl:first-child {
   margin: 0;
 }
-
 .footer .sitemap dl {
   float: left;
   margin-left: 86px;
 }
-
 .footer .sitemap dl dt {
   margin-bottom: 20px;
   color: #fff;
   line-height: 26px;
   font-weight: 300;
 }
-
 .footer .sitemap dl dd {
   margin: 0;
   line-height: 26px;
 }
-
 .footer .sitemap dl a {
   color: #728398;
 }
-
 .footer a {
   color: #728398;
 }
-
-.margin-top-10 {
-  margin-top: 10px !important;
-}
-
-.color-blue {
-  /*color: #4fb1f7 !important;*/
-  color: #d3e0e9;
-}
-
 .footer .copyright {
   height: 71px;
   line-height: 70px;
@@ -137,31 +161,33 @@ a, a:visited {
   color: #728398;
   text-align: center;
 }
-
 .footer hr {
   margin: 0;
   border-color: #36455a;
 }
-
 .footer .copyright span a {
   opacity: 1;
 }
-
 .footer .copyright a {
   margin: 0 0 0 15px;
   opacity: 0.2;
   color: #fff;
 }
-
 .footer a {
   color: #728398;
 }
-
 .footer .copyright a.active, .footer .copyright a:hover {
   opacity: 1;
+  text-decoration: none;
 }
-
 .footer .copyright span a {
   opacity: 1;
+}
+.margin-top-10 {
+  margin-top: 10px !important;
+}
+.color-blue {
+  /*color: #4fb1f7 !important;*/
+  color: #d3e0e9;
 }
 
