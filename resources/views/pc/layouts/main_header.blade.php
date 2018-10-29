@@ -23,7 +23,7 @@
                                 <a href="{{ url('') }}">首页</a>
                             </li>
                             <li>
-                                <a href="{{ url('') }}">宠物商城</a>
+                                <a href="{{ sld_prefix('mall') }}">宠物商城</a>
                             </li>
                             <li>
                                 <a href="{{ url('') }}">宠物资讯</a>

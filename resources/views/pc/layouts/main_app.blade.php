@@ -23,11 +23,11 @@
 </head>
 <body>
 <div id="app" class="{{ route_class() }}-page">
-    @include('pc.layouts.header')
+    @include('pc.layouts.main_header')
     <div class="container">
         @yield('content')
     </div>
-    @include('pc.layouts.footer')
+    @include('pc.layouts.main_footer')
 </div>
 <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- JS 脚本 -->

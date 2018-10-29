@@ -1,0 +1,1 @@
+@extends('pc.layouts.main_app')

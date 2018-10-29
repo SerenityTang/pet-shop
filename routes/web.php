@@ -11,4 +11,6 @@
 |
 */
 
+require __DIR__ . '/web/mall.php';
+
 Route::get('/', 'HomeController@index')->name('home');
