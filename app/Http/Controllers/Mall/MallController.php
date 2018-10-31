@@ -9,6 +9,6 @@ class MallController extends Controller
 {
     public function index()
     {
-        return view('pc.malls.mall_home');
+        return view('pc.mall.home');
     }
 }
