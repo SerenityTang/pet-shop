@@ -6,6 +6,8 @@
  * Time: 下午1:39
  */
 
-Route::group(['middleware' => []], function () {
+/*Route::group(['domain' => '{mall}.imoop.com', 'namespace' => 'Mall'],function () {
     Route::get('/', 'MallController@index')->name('mall.home');
-});
+});*/
+
+Route::get('/', 'MallController@index')->name('mall.home');

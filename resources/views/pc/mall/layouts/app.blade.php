@@ -25,7 +25,7 @@
 <div id="app" class="{{ route_class() }}-page">
     @include('pc.mall.layouts.header')
     <div class="container">
-        @include('pc.mall.layouts.slideshow')
+        {{--@include('pc.mall.layouts.slideshow')--}}
 
         @yield('content')
     </div>

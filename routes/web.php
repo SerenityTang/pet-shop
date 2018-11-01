@@ -13,4 +13,11 @@
 
 require __DIR__ . '/web/mall.php';
 
+/*Route::group(['domain' => '{www}.imoop.com'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', function () {
+        return view('pc.main_home');
+    });
+});*/
+
 Route::get('/', 'HomeController@index')->name('home');
