@@ -56,13 +56,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <hr />
+                    <hr/>
                     <span class="text-left pull-left">
-						Copyright &copy; 2018 laravel.net All Rights Reserved &nbsp; <br class="visible-xs" /> 粤ICP备18032035号-1 <span><script id="ebsgovicon" src="https://szcert.ebs.org.cn/govicons.js?id=016fb545-7dbf-4da7-a77e-ef6aa8e01da2&width=26&height=36&type=1" type="text/javascript" charset="utf-8"></script></span>
+						Copyright &copy; 2018 laravel.net All Rights Reserved &nbsp; <br class="visible-xs"/> 粤ICP备18032035号-1
 					</span>
                     <span class="text-right pull-right languages">
 						<a href="https://www.wegene.com" class="active">
-                            <img src="{{ url('imgs/china.png') }}" width="16" /> <b class="hidden-xs">中文</b></a> <a href="https://www.wegene.com/en"><img src="{{ url('imgs/usa.png') }}"  width="16" /> <b class="hidden-xs">English</b>
+                            <img src="{{ url('imgs/china.png') }}" width="16"/> <b class="hidden-xs">中文</b></a> <a
+                                href="https://www.wegene.com/en"><img src="{{ url('imgs/usa.png') }}" width="16"/> <b
+                                    class="hidden-xs">English</b>
                         </a>
 					</span>
                 </div>

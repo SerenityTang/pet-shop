@@ -23,14 +23,17 @@
 </head>
 <body>
 <div id="app" class="{{ route_class() }}-page">
-    @include('pc.layouts.main_header')
+
     <div class="container">
         @yield('content')
     </div>
-    @include('pc.layouts.main_footer')
+    @include('pc.core.layouts.common_login_register_footer')
 </div>
 <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- JS 脚本 -->
 <script src="{{ mix('js/app.js') }}"></script>
+
+@section('footer')
+@show
 </body>
 </html>
