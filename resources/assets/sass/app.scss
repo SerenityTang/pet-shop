@@ -203,6 +203,10 @@ body {
   color: #d3e0e9;
 }
 
+span.divide{
+  color: #999;
+}
+
 //登录页面
 .login-page {
   .login-panel {
@@ -259,11 +263,48 @@ body {
         text-decoration: none;
       }
     }
-    a.forget-pwd-btn {
+    span.keep-login {
+      color: #999;
       float: left;
     }
-    a.register-btn {
+    span.forget-register {
       float: right;
+    }
+    input[type="checkbox"] {
+      width: 13px;
+      height: 13px;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 18px;
+      position: relative;
+      bottom: 4px;
+      right: 3px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    input[type="checkbox"]::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #999
+    }
+    input[type="checkbox"]:checked::before {
+      content: "\2713";
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border: 1px solid #439ef7;
+      color: #439ef7;
+      font-size: 15px;
+      font-weight: bold;
     }
   }
 }

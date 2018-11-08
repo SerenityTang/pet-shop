@@ -50,20 +50,14 @@
 
                             <div class="form-group" style="margin-bottom: 0px;">
                                 <p class="other-panel">
-                                    <a class="forget-pwd-btn" href="{{ route('password.request') }}">忘记密码?</a>
-                                    <a class="register-btn" href="{{ route('register') }}">免费注册</a>
+                                    <span class="keep-login"><input id="remember" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>保持登录</span>
+                                    <span class="forget-register">
+                                        <a class="forget-pwd-btn" href="{{ route('password.request') }}">忘记密码</a>
+                                        <span class="divide"> | </span>
+                                        <a class="register-btn" href="{{ route('register') }}">免费注册</a>
+                                    </span>
                                 </p>
                             </div>
-
-                            {{--<div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>--}}
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">

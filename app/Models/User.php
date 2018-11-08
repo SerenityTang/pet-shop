@@ -2,10 +2,10 @@
 
 namespace App;
 
+use App\Models\Core\CoreUser;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends CoreUser
 {
     use Notifiable;
 

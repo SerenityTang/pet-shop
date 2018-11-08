@@ -8562,6 +8562,10 @@ body {
   color: #d3e0e9;
 }
 
+span.divide {
+  color: #999;
+}
+
 .login-page .login-panel {
   border: 1px solid #eceff1;
   margin-top: 40px;
@@ -8629,12 +8633,53 @@ body {
   text-decoration: none;
 }
 
-.login-page p.other-panel a.forget-pwd-btn {
+.login-page p.other-panel span.keep-login {
+  color: #999;
   float: left;
 }
 
-.login-page p.other-panel a.register-btn {
+.login-page p.other-panel span.forget-register {
   float: right;
+}
+
+.login-page p.other-panel input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 18px;
+  position: relative;
+  bottom: 4px;
+  right: 3px;
+}
+
+.login-page p.other-panel input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+.login-page p.other-panel input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #999;
+}
+
+.login-page p.other-panel input[type="checkbox"]:checked::before {
+  content: "\2713";
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid #439ef7;
+  color: #439ef7;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .register-page .register-panel {
