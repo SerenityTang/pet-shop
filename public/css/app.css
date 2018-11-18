@@ -8615,6 +8615,7 @@ span.divide {
   padding-top: 6%;
   color: #ff0036ab;
   font-size: 13px;
+  font-weight: bold;
 }
 
 .login-page p.other-panel {
@@ -8758,6 +8759,7 @@ span.divide {
   padding-top: 6%;
   color: #ff0036ab;
   font-size: 13px;
+  font-weight: bold;
 }
 
 .register-page .register-panel .error-msg em.captcha-error-msg {
@@ -8808,5 +8810,33 @@ span.divide {
   color: #439ef7;
   font-size: 20px;
   font-weight: bold;
+}
+
+body .layer-layout {
+  background-color: rgba(67, 158, 247, 0.85);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 15px;
+  text-align: center;
+  line-height: 19px;
+}
+
+body .layer-layout .layui-layer-content {
+  padding: 35px 15px 20px 15px;
+}
+
+body .layer-layout .layui-layer-content a {
+  color: #666;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+body .layer-layout .layui-layer-content a:hover {
+  color: #fff;
+}
+
+body .layer-layout .layui-layer-content p.count-down {
+  font-size: 13px;
 }
 

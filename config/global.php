@@ -55,6 +55,8 @@ return [
 
     'email' => [
         'subject' => '',
-        'expire' => 3,
+        'expiration' => [
+            'time' => 1
+        ],
     ],
 ];

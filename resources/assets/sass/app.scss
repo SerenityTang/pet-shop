@@ -203,7 +203,7 @@ body {
   color: #d3e0e9;
 }
 
-span.divide{
+span.divide {
   color: #999;
 }
 
@@ -248,6 +248,7 @@ span.divide{
       padding-top: 6%;
       color: #ff0036ab;
       font-size: 13px;
+      font-weight: bold;
     }
   }
 
@@ -320,14 +321,14 @@ span.divide{
       border: 1px solid #999;
       box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.075);
     }
-    p.register-skip{
+    p.register-skip {
       margin: 5px 10px 0px 0px;
       text-align: right;
       font-size: 13px;
       a {
         color: #666;
         padding-right: 5px;
-        &:hover{
+        &:hover {
           text-decoration: none;
           font-weight: bold;
           color: #4fb1f7;
@@ -373,6 +374,7 @@ span.divide{
         padding-top: 6%;
         color: #ff0036ab;
         font-size: 13px;
+        font-weight: bold;
       }
       em.captcha-error-msg {
         left: -70%;
@@ -423,3 +425,28 @@ span.divide{
   }
 }
 
+//注册页面弹层样式
+body .layer-layout {
+  background-color: rgba(67, 158, 247, 0.85);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 15px;
+  text-align: center;
+  line-height: 19px;
+}
+
+body .layer-layout .layui-layer-content {
+  padding: 35px 15px 20px 15px;
+  a {
+    color: #666;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+  }
+  p.count-down {
+    font-size: 13px;
+  }
+}

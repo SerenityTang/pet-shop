@@ -13,6 +13,7 @@
 
     {{--bootstrap
     <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('libs/layui/css/layui.css') }}" media="all">
 
     <!-- 样式 -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -30,6 +31,7 @@
     @include('pc.core.layouts.common_login_register_footer')
 </div>
 <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('libs/layui/layui.all.js') }}"></script>
 <!-- JS 脚本 -->
 <script src="{{ mix('js/app.js') }}"></script>
 

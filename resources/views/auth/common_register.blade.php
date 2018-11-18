@@ -13,7 +13,8 @@
                     <div class="panel-heading logo"><img src="/imgs/logo.png" alt=""></div>
                     <h2 class="{{ route_class() }}-title">注册慕宠账号</h2>
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                        <form id="{{ route_class() }}" class="form-horizontal" method="POST"
+                              action="{{ route('register') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group">
@@ -25,11 +26,14 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    @if ($errors->has('username'))
-                                        <span class="help-block error-msg">
-                                            <em>{{ $errors->first('username') }}</em>
-                                        </span>
-                                    @endif
+                                    {{--@if ($errors->has('username'))--}}
+                                    {{--<span class="help-block error-msg">--}}
+                                    {{--<em>{{ $errors->first('username') }}</em>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                    <span class="help-block error-msg">
+                                        <em></em>
+                                    </span>
                                 </div>
                             </div>
 
@@ -42,11 +46,14 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    @if ($errors->has('email'))
-                                        <span class="help-block error-msg">
-                                            <em>{{ $errors->first('email') }}</em>
-                                        </span>
-                                    @endif
+                                    {{--@if ($errors->has('email'))--}}
+                                    {{--<span class="help-block error-msg">--}}
+                                    {{--<em>{{ $errors->first('email') }}</em>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                    <span class="help-block error-msg">
+                                        <em></em>
+                                    </span>
                                 </div>
                             </div>
 
@@ -59,11 +66,14 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    @if ($errors->has('password'))
-                                        <span class="help-block error-msg">
-                                            <em>{{ $errors->first('password') }}</em>
-                                        </span>
-                                    @endif
+                                    {{--@if ($errors->has('password'))--}}
+                                    {{--<span class="help-block error-msg">--}}
+                                    {{--<em>{{ $errors->first('password') }}</em>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                    <span class="help-block error-msg">
+                                        <em></em>
+                                    </span>
                                 </div>
                             </div>
 
@@ -76,11 +86,14 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    @if ($errors->has('password_confirmation'))
-                                        <span class="help-block error-msg">
-                                            <em>{{ $errors->first('password_confirmation') }}</em>
-                                        </span>
-                                    @endif
+                                    {{--@if ($errors->has('password_confirmation'))--}}
+                                    {{--<span class="help-block error-msg">--}}
+                                    {{--<em>{{ $errors->first('password_confirmation') }}</em>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                    <span class="help-block error-msg">
+                                        <em></em>
+                                    </span>
                                 </div>
                             </div>
 
@@ -96,13 +109,18 @@
                                          onclick="this.src='{{ captcha_src() }}'+Math.random()">
                                 </div>
 
-                                @if($errors->has('captcha'))
-                                    <div class="col-md-2">
+                                {{--@if($errors->has('captcha'))--}}
+                                {{--<div class="col-md-2">--}}
+                                {{--<span class="help-block error-msg">--}}
+                                {{--<em class="captcha-error-msg">{{$errors->first('captcha')}}</em>--}}
+                                {{--</span>--}}
+                                {{--</div>--}}
+                                {{--@endif--}}
+                                <div class="col-md-2">
                                         <span class="help-block error-msg">
-                                            <em class="captcha-error-msg"> {{$errors->first('captcha')}}</em>
+                                            <em class="captcha-error-msg"></em>
                                         </span>
-                                    </div>
-                                @endif
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -115,7 +133,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary submit-btn" disabled="disabled">
+                                    <button type="button" class="btn btn-primary submit-btn" disabled="disabled">
                                         立即注册
                                     </button>
                                 </div>
@@ -139,6 +157,67 @@
                 $('.btn').attr("disabled", true);
             }
         });
+    </script>
+    <script>
+        $('.submit-btn').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '{{ route('register') }}',
+                {{--data: {--}}
+                        {{--_token: '{{csrf_token()}}',--}}
+                        {{--'email': $('#email').val(),--}}
+                        {{--'username': $('#username').val(),--}}
+                        {{--'password': $('#password').val(),--}}
+                        {{--'password_confirmation': $('#password_confirmation').val(),--}}
+                        {{--'captcha': $('#captcha').val(),--}}
+                        {{--},--}}
+                data: $('#register').serialize(),
+                cache: false,
+                success: function (res) {
+                    if (res.code == 200) {
+                        layer.open({
+                            type: 1,
+                            anim: 0,
+                            shade: [0.2, '#393D49'],
+                            area: ['380px', '160px'],
+                            skin: 'layer-layout',
+                            title: false,
+                            content: res.message,
+                            time: 13000,
+                            end: function () {
+                                location.href = '{{ url("/") }}';
+                            }
+                        });
+                        $('.count-down').text('13 s 后自动返回首页 或 点击关闭返回首页');
+                        countDown(13);
+                    } else if (res.code == 400) {
+                        $('form div em').eq(0).text(res.data[0]);
+                        $('form div em').eq(1).text(res.data[1]);
+                        $('form div em').eq(2).text(res.data[2]);
+                        $('form div em').eq(3).text(res.data[3]);
+                        $('form div em').eq(4).text(res.data[4]);
+                    }
+                },
+                error: function () {
+                    layer.msg('系统错误！', {
+                        icon: 2,
+                        time: 2000,
+                    });
+                }
+            });
+
+            function countDown(time) {
+                $(".count-down").show();
+                $('.count-down').text(time + ' s 后自动返回首页 或 点击关闭返回首页');
+                --time;
+                setTimeout(
+                    function () {
+                        countDown(time);
+                    },
+                    1000
+                );
+            }
+        })
     </script>
 @stop
 
