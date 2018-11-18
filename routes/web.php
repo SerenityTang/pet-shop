@@ -11,6 +11,9 @@
 |
 */
 
+require __DIR__ . '/web/user.php';
+require __DIR__ . '/web/admin.php';
+require __DIR__ . '/web/auth.php';
 require __DIR__ . '/web/mall.php';
 
 /*Route::group(['domain' => '{www}.imoop.com'], function () {
@@ -21,3 +24,4 @@ require __DIR__ . '/web/mall.php';
 });*/
 
 Route::get('/', 'HomeController@index')->name('home');
+Auth::routes();

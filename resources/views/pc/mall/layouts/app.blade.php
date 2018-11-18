@@ -23,13 +23,13 @@
 </head>
 <body>
 <div id="app" class="{{ route_class() }}-page">
-    @include('pc.mall.layouts.header')
+    {{--@include('pc.mall.layouts.header')--}}
     <div class="container">
         {{--@include('pc.mall.layouts.slideshow')--}}
 
         @yield('content')
     </div>
-    @include('pc.layouts.main_footer')
+    {{--@include('pc.layouts.main_footer')--}}
 </div>
 <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- JS 脚本 -->
