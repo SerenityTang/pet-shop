@@ -34,17 +34,18 @@ class RegisteredEmailListener
 
         $code = sha1($user->id . strtotime(Carbon::now()), false);  //邮件验证链接code
         $expire_time = date('Y-m-d H:i:s', strtotime('+' . config('global.email.expiration.time') . ' hour'));  //过期时间
-        $url = url('/activate_email') . '/?code=' . $code;  //激活链接
+        $url = url('/user/activate/email') . '/?code=' . $code;  //激活链接
+        $subject = config('global.email.register_subject');
 
         //向指定邮箱发送邮件
-        Mail::to($user->email)->send(new CommonMail($user));
+        Mail::to($user->email)->send(new CommonMail($user, $url, $subject));
 
         //生成发送邮件记录
         EmailRecord::create([
             'user_id' => $user->id,
             'code' => $code,
             'url' => $url,
-            'remarks' => '注册 —— 激活个人账户',
+            'remarks' => '注册——激活个人账户',
             'expired_at' => $expire_time,
         ]);
     }

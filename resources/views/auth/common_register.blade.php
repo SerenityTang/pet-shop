@@ -102,7 +102,7 @@
 
                                 <div class="col-md-3">
                                     <input id="captcha" type="text" class="form-control" name="captcha"
-                                           placeholder="请输入验证码">
+                                           placeholder="请输入验证码" maxlength="5">
                                 </div>
                                 <div class="col-md-3 captcha-pic">
                                     <img src="{{captcha_src()}}" style="cursor: pointer"
@@ -117,9 +117,9 @@
                                 {{--</div>--}}
                                 {{--@endif--}}
                                 <div class="col-md-2">
-                                        <span class="help-block error-msg">
-                                            <em class="captcha-error-msg"></em>
-                                        </span>
+                                    <span class="help-block error-msg">
+                                        <em class="captcha-error-msg"></em>
+                                    </span>
                                 </div>
                             </div>
 
@@ -148,6 +148,7 @@
 
 @section('footer')
     <script>
+        //同意协议修改注册按钮样式
         $('#agreement').change(function () {
             if ($('#agreement').prop('checked')) {
                 $('.btn').removeClass('submit-btn');
@@ -157,8 +158,13 @@
                 $('.btn').attr("disabled", true);
             }
         });
-    </script>
-    <script>
+
+        //表单聚焦删除错误提示
+        $('form div input').focus(function () {
+            $(this).parents('div.form-group').find('em').text('');
+        });
+
+        //点击注册按钮
         $('.submit-btn').click(function () {
             $.ajax({
                 type: 'post',
@@ -191,11 +197,14 @@
                         $('.count-down').text('13 s 后自动返回首页 或 点击关闭返回首页');
                         countDown(13);
                     } else if (res.code == 400) {
-                        $('form div em').eq(0).text(res.data[0]);
-                        $('form div em').eq(1).text(res.data[1]);
-                        $('form div em').eq(2).text(res.data[2]);
-                        $('form div em').eq(3).text(res.data[3]);
-                        $('form div em').eq(4).text(res.data[4]);
+                        $('form div em').eq(0).text(res.data['username']);
+                        $('form div em').eq(1).text(res.data['email']);
+                        $('form div em').eq(2).text(res.data['password']);
+                        $('form div em').eq(3).text(res.data['password_confirmation']);
+                        $('form div em').eq(4).text(res.data['captcha']);
+
+                        //提交表单信息有误刷新图片验证码
+                        $('form img').click();
                     }
                 },
                 error: function () {
@@ -206,6 +215,7 @@
                 }
             });
 
+            //注册后弹出层的倒计时
             function countDown(time) {
                 $(".count-down").show();
                 $('.count-down').text(time + ' s 后自动返回首页 或 点击关闭返回首页');

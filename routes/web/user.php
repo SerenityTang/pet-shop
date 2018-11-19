@@ -6,4 +6,6 @@
  * Time: 下午5:51
  */
 
-Route::get('activate_email', 'UserController@activateEmail');
+Route::group(['namespace' => '\User', 'prefix' => 'user'], function (){
+    Route::get('activate/email', 'UserController@activateEmail');
+});

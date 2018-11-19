@@ -8614,7 +8614,7 @@ span.divide {
   left: -13%;
   padding-top: 6%;
   color: #ff0036ab;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -8758,7 +8758,7 @@ span.divide {
   left: -13%;
   padding-top: 6%;
   color: #ff0036ab;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -8816,14 +8816,14 @@ body .layer-layout {
   background-color: rgba(67, 158, 247, 0.85);
   color: #fff;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 15px;
   margin-left: 15px;
   text-align: center;
   line-height: 19px;
 }
 
 body .layer-layout .layui-layer-content {
-  padding: 35px 15px 20px 15px;
+  padding: 30px 15px 15px 15px;
 }
 
 body .layer-layout .layui-layer-content a {
