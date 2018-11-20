@@ -59,7 +59,7 @@
                                     <span class="keep-login"><input id="remember" type="checkbox"
                                                                     name="remember" {{ old('remember') ? 'checked' : '' }}>保持登录</span>
                                     <span class="forget-register">
-                                        <a class="forget-pwd-btn" href="{{ route('password.request') }}">忘记密码</a>
+                                        <a class="forget-pwd-btn" href="{{ route('forgot.password') }}">忘记密码</a>
                                         <span class="divide"> | </span>
                                         <a class="register-btn" href="{{ route('register') }}">免费注册</a>
                                     </span>
