@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Be right back.</title>
+    <title>成功了...</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/iconfont/iconfont.css') }}">
 
     <style>
         html, body {
@@ -18,6 +19,7 @@
             display: table;
             font-weight: 100;
             font-family: 'Lato';
+            background-color: #f6f6f6;
         }
 
         .container {
@@ -31,14 +33,29 @@
             display: inline-block;
         }
 
-        .title {
-            font-size: 72px;
-            margin-bottom: 40px;
+        .tip {
+            font-size: 60px;
+            color: #666;
+            font-weight: bold;
         }
 
         .error-page {
-            width: 600px;
-            margin: 20px auto 0 auto;
+            width: 630px;
+        }
+
+        .home {
+            text-decoration: none;
+            color: #666;
+        }
+
+        .home:hover {
+            color: #439ef7;
+            font-weight: bold;
+        }
+
+        .icon-success{
+            font-size: 250px;
+            color: #00b976;
         }
 
         @media (max-width: 991px) {
@@ -51,6 +68,7 @@
             float: left;
             font-size: 100px;
             font-weight: 300;
+            margin-top: 30px;
         }
 
         @media (max-width: 991px) {
@@ -74,11 +92,13 @@
         .error-page > .error-content > h3 {
             font-weight: 300;
             font-size: 25px;
+            margin-bottom: 5px;
         }
 
         @media (max-width: 991px) {
             .error-page > .error-content > h3 {
                 text-align: center;
+                margin-bottom: 5px;
             }
         }
     </style>
@@ -86,22 +106,22 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">Be right back.</div>
+        <i class="iconfont icon-chenggongbiaoqing icon-success"></i>
 
         <div class="error-page">
-            <h2 class="headline text-yellow"> 500</h2>
+            <h2 class="headline text-yellow">{{ $code }}</h2>
 
             <div class="error-content" style="padding-top: 30px">
-                <h3><i class="fa fa-warning text-yellow"></i> 出错了.</h3>
+                <h3>Congratulations, successful operation</h3>
 
                 <p>
-                    出错了.
                     @if(isset($message))
-                        {{$message}}
+                        {{$message}}...
                     @endif
-                    此时你可以返回<a href="{{route('home')}}"> 首页 </a>.
                 </p>
-
+                <p>
+                    此时你可以返回<a href="{{route('home')}}" class="home"> 首页 </a>.
+                </p>
             </div>
             <!-- /.error-content -->
         </div>

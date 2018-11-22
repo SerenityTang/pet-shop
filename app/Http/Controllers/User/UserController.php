@@ -11,23 +11,38 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    /**
+     * 激活邮件
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function activateEmail(Request $request)
     {
-        $email_record = EmailRecord::where('code', $request->input('code'))->where('status', true)->first();
+        $email_record = EmailRecord::where('code', $request->input('code'))->first();
         if (!is_null($email_record)) {
-            $email_record->status = false;
-            $email_record->activated_at = Carbon::now();
-            if ($email_record->save()) {
-                $user = User::where('id', $email_record->user_id)->first();
-                $user->user_status = true;
-                $user->save();
+            if (strtotime(Carbon::now()) > strtotime($email_record->expired_at)) {
+                return $this->errorBadRequest('新用户注册账号激活链接已过期');
+            } elseif ($email_record->status == true) {
+                return $this->errorBadRequest('新用户注册账号激活链接已失效');
+            } elseif ($email_record->status == false) {
+                //更新邮箱发送记录信息
+                $email_record->status = true;
+                $email_record->activated_at = Carbon::now();
+                if ($email_record->save()) {
+                    //更新用户状态
+                    $user = User::where('id', $email_record->user_id)->first();
+                    $user->user_status = true;
+                    $user->save();
 
-                Auth::guard()->login($user);
+                    //激活账号并自动登录
+                    Auth::guard()->login($user);
 
-                return redirect()->route('home');
+                    return $this->successOperation('恭喜您，新用户注册账号激活成功');
+                }
             }
         } else {
-            return response()->view('pc.errors.500', ['message' => '新用户注册账号激活链接失效或不存在']);
+            return $this->errorBadRequest('新用户注册账号激活链接不存在');
         }
     }
 }

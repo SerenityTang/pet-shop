@@ -55,6 +55,7 @@ return [
 
     'email' => [
         'register_subject' => '慕宠网-新注册账号激活',
+        'register_remarks' => '注册——激活个人账户',
         'expiration' => [
             'time' => 1
         ],

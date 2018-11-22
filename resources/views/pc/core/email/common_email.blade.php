@@ -37,8 +37,11 @@
 <body>
 <h2>亲爱的 {{ $user->username }} ，您好</h2>
 
-<p class="bind">您申请的{{ $subject }}，请在 {{config('global.email.expiration.time')}} 小时内点击 <a href="{{ $url }}" role="button" class="confirm-btn"
-                                           style="text-decoration: none;">这里</a> 确认，O(∩_∩)O谢谢！！！</p>
+<p class="bind">您申请的{{ $subject }}，请在 {{config('global.email.expiration.time')}} 小时内点击 <a href="{{ $url }}"
+                                                                                          role="button"
+                                                                                          class="confirm-btn"
+                                                                                          style="text-decoration: none;">这里</a>
+    确认，O(∩_∩)O谢谢！！！</p>
 
 <p class="bind">如果上面的按钮无法点击，您也可以尝试复制（右键复制）下面的地址，并粘帖到浏览器的地址栏中访问。</p>
 

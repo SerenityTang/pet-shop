@@ -12,7 +12,7 @@ namespace App\Traits;
 trait ResponseTrait
 {
     /**
-     * json 格式返回结果
+     * json 格式返回结果(ajax请求)
      *
      * @param $code
      * @param null $message
