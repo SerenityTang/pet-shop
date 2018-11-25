@@ -24,6 +24,13 @@
 </head>
 <body>
 <div id="app" class="{{ route_class() }}-page">
+    @if(!getEmailStatus())
+        <div class="alert alert-warning alert-email">
+            <a href="#" class="close close-btn" data-dismiss="alert">&times;</a>
+            <strong>警告！</strong>您账号还没有验证邮箱进行激活喔，请<a href="{{ email_facilitator() }}" class="go-email">
+                前往邮箱</a>验证 或 重新<a href="javascript:void(0)" class="again-send">发送邮件</a>进行账号激活！
+        </div>
+    @endif
     @include('pc.core.layouts.common_header')
     <div class="container">
         @yield('content')
@@ -32,8 +39,38 @@
 </div>
 <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('libs/layui/layui.all.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/common.js') }}"></script>
 <!-- JS 脚本 -->
 <script src="{{ mix('js/app.js') }}"></script>
+
+<script>
+    $('.again-send').click(function () {
+        $.ajax({
+            type: 'post',
+            url: '{{ url('user/send/email') }}',
+            data: {
+                _token: '{{csrf_token()}}',
+                email : '{{ \Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->email : '' }}',
+                subject: '{{ config('global.email.register_subject') }}',
+                remarks: '{{ config('global.email.register_remarks') }}'
+            },
+            cache: false,
+            success: function (res) {
+                if (res.code == 500) {
+                    layer.msg(res.message);
+                } else {
+                    layer.msg(res.message);
+                }
+            },
+            error: function () {
+                layer.msg('系统错误！', {
+                    icon: 2,
+                    time: 2000,
+                });
+            }
+        });
+    })
+</script>
 
 @section('footer')
 @show

@@ -73,8 +73,8 @@ class RegisterController extends Controller
 
         if ($user) {
             //通过邮件类型获取服务商链接
-            $email_type = explode('.', explode('@', $user->email)[1])[0];
-            $email_url = email_facilitator($email_type);
+
+            $email_url = email_facilitator($user->email);
 
             return $this->jsonResult(200, '<p>亲爱的 ' . $user->username . '，恭喜您注册成功！</p>请<a href="' . $email_url . '">前往邮箱</a>验证以激活账号 ^_^<br><br><p class="count-down">13 s 后自动返回首页 或 点击关闭返回首页</p>', $user);
         }

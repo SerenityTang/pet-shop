@@ -8553,17 +8553,25 @@ body {
   border-color: #36455a;
 }
 
-.margin-top-10 {
-  margin-top: 10px !important;
+.home-page .alert-email a.close-btn {
+  font-size: 15px;
+  position: relative;
+  top: -6px;
 }
 
-.color-blue {
-  /*color: #4fb1f7 !important;*/
-  color: #d3e0e9;
+.home-page .alert-email a.go-email,
+.home-page .alert-email a.again-send {
+  color: #fff;
+  background-color: #439ef7;
+  padding: 6px 8px;
+  border-radius: 4px;
+  opacity: 0.9;
+  margin: 0px 5px;
 }
 
-span.divide {
-  color: #999;
+.home-page .alert-email a.go-email:hover,
+.home-page .alert-email a.again-send:hover {
+  text-decoration: none;
 }
 
 .login-page .login-panel {
@@ -8681,6 +8689,12 @@ span.divide {
   color: #439ef7;
   font-size: 15px;
   font-weight: bold;
+}
+
+.login-page .alert-msg {
+  width: 281px;
+  margin: 0px 0px 0px 15px;
+  padding: 8px;
 }
 
 .register-page .register-panel {
@@ -8899,5 +8913,22 @@ body .layer-layout .layui-layer-content p.count-down {
 
 .forgot-password-page .forgot-password-panel .captcha-pic img {
   border-radius: 4px;
+}
+
+.margin-top-10 {
+  margin-top: 10px !important;
+}
+
+.color-blue {
+  /*color: #4fb1f7 !important;*/
+  color: #d3e0e9;
+}
+
+span.divide {
+  color: #999;
+}
+
+.hide {
+  display: none;
 }
 

@@ -93,9 +93,10 @@ class LoginController extends Controller
             $result = User::where($this->username(), $request->all()[$this->username()])->first();
             if (!is_null($result)) {
                 if ($result->user_status == false) {
-                    return $this->jsonResult(400, 'There are incorect values in the form!', ['password' => '账号未激活。']);
+                    return $this->jsonResult('m400', 'There are incorect values in the form!',  '登录账号未激活，请<a href="{{ email_facilitator() }}" class="go-email">
+                前往邮箱</a> 验证 或 重新 <a href="javascript:void(0)" class="again-send">发送邮件</a> 进行账号激活！');
                 } else {
-                    return $this->jsonResult(400, 'There are incorect values in the form!', ['password' => '密码 错误。']);
+                    return $this->jsonResult('m400', 'There are incorect values in the form!', '用户名或密码不正确');
                 }
             }
         }

@@ -32,7 +32,7 @@ class CommonSendMail
         Mail::to($user->email)->send(new CommonMail($user, $url, $subject));
 
         //生成发送邮件记录
-        EmailRecord::create([
+        return EmailRecord::create([
             'user_id' => $user->id,
             'code' => $code,
             'url' => $url,
