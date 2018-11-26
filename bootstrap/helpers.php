@@ -31,8 +31,12 @@ function sld_prefix($type)
  * @param $email_type
  * @return string
  */
-function email_facilitator($email_type)
+function email_facilitator($email = null)
 {
+    if (is_null($email) && \Illuminate\Support\Facades\Auth::check()) {
+        $email = \Illuminate\Support\Facades\Auth::user()->email;
+    }
+    $email_type = explode('.', explode('@', $email)[1])[0];
     switch ($email_type) {
         case 'qq':
             $email_url = 'https://mail.qq.com';
@@ -64,4 +68,18 @@ function email_facilitator($email_type)
     }
 
     return $email_url;
+}
+
+/**
+ * 返回邮箱认证状态
+ *
+ * @return bool
+ */
+function getEmailStatus()
+{
+    if (\Illuminate\Support\Facades\Auth::check()) {
+        return \Illuminate\Support\Facades\Auth::user()->email_verified;
+    } else {
+        return true;
+    }
 }

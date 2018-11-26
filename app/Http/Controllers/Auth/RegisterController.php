@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -62,7 +62,7 @@ class RegisterController extends Controller
         //$this->validator($request->all())->validate();
         $validator = $this->validator($request->all());
         if ($validator->fails()) {
-            return $this->jsonResult(400, 'There are incorect values in the form!', $validator->errors()->all());
+            return $this->jsonResult(400, 'There are incorect values in the form!', $validator->errors());
         }
 
         $user = $this->create($request->all());
@@ -73,10 +73,10 @@ class RegisterController extends Controller
 
         if ($user) {
             //通过邮件类型获取服务商链接
-            $email_type = explode('.', explode('@', $user->email)[1])[0];
-            $email_url = email_facilitator($email_type);
 
-            return $this->jsonResult(200, '亲爱的 ' . $user->username . '，恭喜您注册成功，请<a href="' . $email_url . '" target="_blank">前往邮箱</a>验证以激活账号 ^_^<br><br><p class="count-down">13 s 后自动返回首页 或 点击关闭返回首页</p>', $user);
+            $email_url = email_facilitator($user->email);
+
+            return $this->jsonResult(200, '<p>亲爱的 ' . $user->username . '，恭喜您注册成功！</p>请<a href="' . $email_url . '">前往邮箱</a>验证以激活账号 ^_^<br><br><p class="count-down">13 s 后自动返回首页 或 点击关闭返回首页</p>', $user);
         }
     }
 
@@ -89,9 +89,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'username' => 'required|string|max:15|unique:users',
+            'email' => 'required|string|email|max:50|unique:users',
+            'password' => 'required|string|min:6|max:20|confirmed',
             'password_confirmation' => 'required|string',
             'captcha' => 'required|string|captcha',
         ]);
@@ -101,7 +101,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array $data
-     * @return \App\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {

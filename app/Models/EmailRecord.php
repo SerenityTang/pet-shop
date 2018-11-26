@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EmailRecord extends Model
+class EmailRecord extends CoreModel
 {
     protected $table = 'email_records';
 

@@ -6,10 +6,13 @@
  * Time: 上午10:57
  */
 
-Route::group(['namespace' => 'App\Http\Controllers\Auth'], function (){
-    Route::get('login', 'LoginController@showLoginForm')->name('login');
-    Route::post('login', 'LoginController@login');
-    Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
-    Route::post('register', 'RegisterController@register');
-    Route::post('logout', 'LoginController@logout')->name('logout');
+Route::group(['namespace' => '\Auth'], function (){
+    Route::get('login', 'LoginController@showLoginForm')->name('login');                    //登录页面
+    Route::post('login', 'LoginController@login');                                          //登录处理
+    Route::get('register', 'RegisterController@showRegistrationForm')->name('register');    //注册页面
+    Route::post('register', 'RegisterController@register');                                 //注册处理
+    Route::post('logout', 'LoginController@logout')->name('logout');                        //登出
+
+    Route::get('forgot/password', 'ForgotPasswordController@showForgotPasswordForm')->name('forgot.password');
+    Route::post('forgot/password', 'ForgotPasswordController@forgotPassword');
 });

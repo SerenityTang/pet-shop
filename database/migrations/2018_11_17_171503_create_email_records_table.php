@@ -18,7 +18,7 @@ class CreateEmailRecordsTable extends Migration
 
             $table->string('user_id', 36)->comment('用户id');
             $table->string('code')->comment('验证链接code');
-            $table->boolean('status')->default(true)->comment('使用状态：0->已使用，1->未使用');
+            $table->boolean('status')->default(false)->comment('使用状态：0->未使用，1->已使用');
             $table->string('url')->comment('激活邮件页面地址');
             $table->string('remarks')->comment('邮件作用对象，如：忘记密码、邮箱验证、账号激活……');
             $table->timestamp('activated_at')->nullable()->comment('激活时间');

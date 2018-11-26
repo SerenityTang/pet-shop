@@ -11,7 +11,8 @@
                     <div class="panel-heading logo"><img src="/imgs/logo.png" alt=""></div>
                     <h2 class="{{ route_class() }}-title">慕宠账号登录</h2>
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                        <form id="{{ route_class() }}" class="form-horizontal" method="POST"
+                              action="{{ route('login') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group">
@@ -19,15 +20,18 @@
 
                                 <div class="col-md-5">
                                     <input id="username" type="username" class="form-control" name="username"
-                                           value="{{ old('username') }}" placeholder="手机号码/邮箱" autofocus>
+                                           value="{{ old('username') }}" placeholder="用户名/手机号码/邮箱" autofocus>
                                 </div>
 
                                 <div class="col-md-3">
-                                    @if ($errors->has('username'))
-                                        <span class="help-block error-msg">
-                                            <em>{{ $errors->first('username') }}</em>
-                                        </span>
-                                    @endif
+                                    {{--@if ($errors->has('username'))--}}
+                                    {{--<span class="help-block error-msg">--}}
+                                    {{--<em>{{ $errors->first('username') }}</em>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                    <span class="help-block error-msg">
+                                        <em></em>
+                                    </span>
                                 </div>
                             </div>
 
@@ -40,19 +44,29 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    @if ($errors->has('password'))
-                                        <span class="help-block error-msg">
-                                            <em>{{ $errors->first('password') }}</em>
-                                        </span>
-                                    @endif
+                                    {{--@if ($errors->has('password'))--}}
+                                    {{--<span class="help-block error-msg">--}}
+                                    {{--<em>{{ $errors->first('password') }}</em>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                    <span class="help-block error-msg">
+                                        <em></em>
+                                    </span>
                                 </div>
+                            </div>
+
+                            <div class="form-group hide">
+                                <div class="col-md-4"></div>
+
+                                <div class="col-md-4 alert alert-danger alert-msg"></div>
                             </div>
 
                             <div class="form-group" style="margin-bottom: 0px;">
                                 <p class="other-panel">
-                                    <span class="keep-login"><input id="remember" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>保持登录</span>
+                                    <span class="keep-login"><input id="remember" type="checkbox"
+                                                                    name="remember" {{ old('remember') ? 'checked' : '' }}>保持登录</span>
                                     <span class="forget-register">
-                                        <a class="forget-pwd-btn" href="{{ route('password.request') }}">忘记密码</a>
+                                        <a class="forget-pwd-btn" href="{{ route('forgot.password') }}">忘记密码</a>
                                         <span class="divide"> | </span>
                                         <a class="register-btn" href="{{ route('register') }}">免费注册</a>
                                     </span>
@@ -61,7 +75,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="button" class="btn btn-primary login-btn">
                                         登录
                                     </button>
                                 </div>
@@ -72,4 +86,67 @@
             </div>
         </div>
     </div>
-@endsection
+@stop
+
+@section('footer')
+    <script>
+        //表单聚焦删除错误提示
+        $('form div input').focus(function () {
+            $(this).parents('div.form-group').find('em').text('');
+        });
+
+        //点击注册按钮
+        $('.login-btn').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '{{ route('login') }}',
+                data: $('#login').serialize(),
+                cache: false,
+                success: function (res) {
+                    if (res.code == 400) {
+                        $('form div em').eq(0).text(res.data['username']);
+                        $('form div em').eq(1).text(res.data['password']);
+                    } else if (res.code == 'm400') {
+                        $('form div.form-group').eq(2).removeClass('hide');
+                        $('form div.form-group .alert-msg').html(res.data);
+                    } else {
+                        location.href = '{{ url("/") }}';
+                    }
+                },
+                error: function () {
+                    layer.msg('系统错误！', {
+                        icon: 2,
+                        time: 2000,
+                    });
+                }
+            });
+        });
+        $('.alert-msg').on('click', '.again-send', function (event) {
+            $.ajax({
+                type: 'post',
+                url: '{{ url('user/send/email') }}',
+                data: {
+                    _token: '{{csrf_token()}}',
+                    username: $('#username').val(),
+                    email : '{{ \Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->email : '' }}',
+                    subject: '{{ config('global.email.register_subject') }}',
+                    remarks: '{{ config('global.email.register_remarks') }}'
+                },
+                cache: false,
+                success: function (res) {
+                    if (res.code == 500) {
+                        layer.msg(res.message);
+                    } else {
+                        layer.msg(res.message);
+                    }
+                },
+                error: function () {
+                    layer.msg('系统错误！', {
+                        icon: 2,
+                        time: 2000,
+                    });
+                }
+            });
+        });
+    </script>
+@stop

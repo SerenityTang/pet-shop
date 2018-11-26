@@ -29,4 +29,19 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    /**
+     * 返回重置密码表单页面
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showForgotPasswordForm()
+    {
+        return view('auth.passwords.email');
+    }
+
+    public function forgotPassword()
+    {
+
+    }
 }

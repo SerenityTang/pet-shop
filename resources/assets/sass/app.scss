@@ -11,12 +11,18 @@ body {
   background-color: #f3f7f9;
 }
 
+body.top-warn {
+  margin-top: 55px;
+}
+
 // 顶部导航
 .header {
   position: relative;
   z-index: 5;
-  height: 70px;
+  height: 73px;
   border-bottom: 1px solid #eceff1;
+  border-top: 3px solid #4fb1f7;
+  box-shadow: 0px 3px 10px 0px rgba(236, 239, 241, 1), 0 1px rgba(236, 239, 241, 1);
 }
 
 .header .logo {
@@ -101,6 +107,7 @@ body {
 }
 
 .header .navbar-nav > li > a {
+  font-size: 15px;
   height: 68px;
   margin: 0 10px;
   padding: 20px 10px;
@@ -194,17 +201,37 @@ body {
   }
 }
 
-.margin-top-10 {
-  margin-top: 10px !important;
-}
+//首页
+.home-page {
+  .alert-email {
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border-radius: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    a.close-btn {
+      font-size: 15px;
+      position: relative;
+      top: -6px;
+    }
+    a.go-email, a.again-send {
+      color: #fff;
+      background-color: #439ef7;
+      padding: 6px 8px;
+      border-radius: 4px;
+      opacity: 0.9;
+      margin: 0px 5px;
+      &:hover {
+        text-decoration: none;
 
-.color-blue {
-  /*color: #4fb1f7 !important;*/
-  color: #d3e0e9;
-}
-
-span.divide {
-  color: #999;
+      }
+    }
+  }
 }
 
 //登录页面
@@ -247,7 +274,7 @@ span.divide {
       left: -13%;
       padding-top: 6%;
       color: #ff0036ab;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: bold;
     }
   }
@@ -308,6 +335,11 @@ span.divide {
       font-weight: bold;
     }
   }
+  .alert-msg {
+    width: 281px;
+    margin: 0px 0px 0px 15px;
+    padding: 8px;
+  }
 }
 
 //注册页面
@@ -364,6 +396,9 @@ span.divide {
     }
     .captcha-pic {
       margin-left: -15px;
+      img {
+        border-radius: 4px;
+      }
     }
     .error-msg {
       margin: 0px;
@@ -373,7 +408,7 @@ span.divide {
         left: -13%;
         padding-top: 6%;
         color: #ff0036ab;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: bold;
       }
       em.captcha-error-msg {
@@ -430,14 +465,14 @@ body .layer-layout {
   background-color: rgba(67, 158, 247, 0.85);
   color: #fff;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 15px;
   margin-left: 15px;
   text-align: center;
   line-height: 19px;
 }
 
 body .layer-layout .layui-layer-content {
-  padding: 35px 15px 20px 15px;
+  padding: 30px 15px 15px 15px;
   a {
     color: #666;
     text-decoration: underline;
@@ -448,5 +483,114 @@ body .layer-layout .layui-layer-content {
   }
   p.count-down {
     font-size: 13px;
+  }
+}
+
+//忘记密码
+.forgot-password-page {
+  .forgot-password-panel {
+    border: 1px solid #eceff1;
+    margin-top: 40px;
+    background-color: #fff;
+    box-shadow: -8px 8px 1px 0 rgba(0, 0, 0, 0.075);
+    .panel-body input:focus {
+      border: 1px solid #999;
+      box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.075);
+    }
+    .forgot-password-title {
+      font-weight: bold;
+      text-align: center;
+    }
+    .logo {
+      text-align: center;
+      border: 0;
+    }
+    p.import-msg {
+      text-align: center;
+      font-weight: bold;
+    }
+    .btn {
+      font-size: 20px;
+      font-weight: bold;
+      width: 178px;
+      height: 44px;
+      line-height: 43px;
+      margin: 12px 0 0 22px;
+      &:hover {
+        background-color: #439ef7;
+        opacity: 0.9;
+      }
+    }
+    .next-btn {
+      &:hover {
+        background-color: #4fb1f7;
+        opacity: 0.65;
+        border: 0;
+      }
+    }
+    .captcha-pic {
+      margin-left: -15px;
+      img {
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.margin-top-10 {
+  margin-top: 10px !important;
+}
+
+.color-blue {
+  /*color: #4fb1f7 !important;*/
+  color: #d3e0e9;
+}
+
+span.divide {
+  color: #999;
+}
+
+.hide {
+  display: none;
+}
+
+//模态框
+.modal-dialog{
+  .modal-top {
+    padding: 10px;
+    .modal-close {
+      font-size: 16px;
+    }
+    .title {
+      color: #666;
+      font-weight: bold;
+    }
+  }
+  .modal-body{
+    .alert-tip{
+      text-align: center;
+      line-height: 28px;
+      padding: 10px;
+    }
+    p.content-tip{
+      line-height: 28px;
+    }
+    a.close-btn {
+      font-size: 15px;
+      position: relative;
+      top: -6px;
+    }
+    a.go-email, a.again-send {
+      color: #fff;
+      background-color: #439ef7;
+      padding: 6px 8px;
+      border-radius: 4px;
+      opacity: 0.9;
+      margin: 0px 5px;
+      &:hover {
+        text-decoration: none;
+
+      }
+    }
   }
 }
