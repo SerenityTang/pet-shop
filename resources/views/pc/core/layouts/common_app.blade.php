@@ -22,15 +22,39 @@
 
     <script src="{{ asset('libs/jQuery/jQuery-2.2.0.min.js') }}"></script>
 </head>
-<body>
+<body class="top-warn">
 <div id="app" class="{{ route_class() }}-page">
+    <!-- 注册自动登录后根据用户邮箱验证状态提示 -->
     @if(!getEmailStatus())
         <div class="alert alert-warning alert-email">
             <a href="#" class="close close-btn" data-dismiss="alert">&times;</a>
-            <strong>警告！</strong>您账号还没有验证邮箱进行激活喔，请<a href="{{ email_facilitator() }}" class="go-email">
-                前往邮箱</a>验证 或 重新<a href="javascript:void(0)" class="again-send">发送邮件</a>进行账号激活！
+            <strong>警告！</strong>您账号还没有验证邮箱进行激活喔，请<a href="{{ email_facilitator() }}" class="go-email">前往邮箱</a>验证 或 重新<a href="javascript:void(0)" class="again-send">发送邮件</a>进行账号激活！否则影响您使用平台的功能。
         </div>
     @endif
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="emailVerified" tabindex="-1" role="dialog" aria-labelledby="emailVerifiedLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-top">
+                    <button type="button" class="close modal-close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title title" id="emailVerifiedLabel">激活账号</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning alert-tip">
+                        <strong>警告！</strong>为避免影响您使用平台的功能，请先进行邮箱验证以激活账号！
+                    </div>
+                    <p class="content-tip">
+                        激活邮件已发送，请<a href="@if (session('email_verified')) {{ session('email_verified') }} @endif" class="go-email">前往邮箱</a>查收（注意检查回收站、垃圾箱中是否有激活邮件）并验证。如果仍未收到，请尝试重新<a href="javascript:void(0)" class="again-send">发送邮件</a>进行账号激活！否则影响您使用平台的功能。
+                    </p>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
     @include('pc.core.layouts.common_header')
     <div class="container">
         @yield('content')
@@ -44,13 +68,27 @@
 <script src="{{ mix('js/app.js') }}"></script>
 
 <script>
+    /*邮箱验证提示模态框*/
+    @if (session('email_verified'))
+    $('#emailVerified').modal('show');
+    @endif
+
+    /*用户未登录 或 用户点击邮箱验证提示关闭按钮*/
+    @if (!\Illuminate\Support\Facades\Auth::check() || (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->email_verified == true))
+    $('body').removeClass('top-warn');
+    @endif
+    $('.close-btn').click(function () {
+        $('body').removeClass('top-warn');
+    });
+
+    /*邮箱验证提示重新发送邮件*/
     $('.again-send').click(function () {
         $.ajax({
             type: 'post',
             url: '{{ url('user/send/email') }}',
             data: {
                 _token: '{{csrf_token()}}',
-                email : '{{ \Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->email : '' }}',
+                email: '{{ \Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->email : '' }}',
                 subject: '{{ config('global.email.register_subject') }}',
                 remarks: '{{ config('global.email.register_remarks') }}'
             },

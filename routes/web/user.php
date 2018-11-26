@@ -7,6 +7,6 @@
  */
 
 Route::group(['namespace' => '\User', 'prefix' => 'user'], function () {
-    Route::post('send/email', 'UserController@sendEmail');   //发送邮件
+    Route::post('send/email', 'UserController@sendEmail');           //发送邮件
     Route::get('activate/email', 'UserController@activateEmail');    //邮件激活
 });

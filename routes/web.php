@@ -25,3 +25,9 @@ require __DIR__ . '/web/mall.php';
 
 Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'email_verified'], function () {
+        Route::get('/test', function (){return 'Your email is verified';});    //邮件激活
+    });
+});
