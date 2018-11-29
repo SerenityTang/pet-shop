@@ -38,4 +38,14 @@ class User extends CoreUser
         'attentioned_notifications' => 'boolean',
         'email_notifications' => 'boolean',
     ];
+
+    /**
+     * 用户收货地址
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function userAddress()
+    {
+        return $this->hasMany(UserAddress::class, 'user_id', 'id');
+    }
 }

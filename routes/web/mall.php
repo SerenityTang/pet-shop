@@ -10,4 +10,8 @@
     Route::get('/', 'MallController@index')->name('mall.home');
 });*/
 
-Route::get('/', 'MallController@index')->name('mall.home');
+Route::get('/', 'MallController@index')->name('mall');
+
+Route::group(['namespace' => '\Mall', 'prefix' => 'user'], function () {
+    Route::get('address', 'UserAddressController@index')->name('user.address');
+});

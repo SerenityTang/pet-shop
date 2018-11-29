@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">--}}
 
 <!-- 样式 -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/mall_app.css') }}" rel="stylesheet">
 
     <link rel="shortcut icon" href="/bitbug_favicon.ico">
 
