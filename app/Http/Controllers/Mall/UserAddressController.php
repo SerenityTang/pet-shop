@@ -16,11 +16,14 @@ class UserAddressController extends Controller
      */
     public function index()
     {
-        if (Auth::check()) {
+        /*if (Auth::check()) {
             $userId = Auth::user()->id;
             $userAddress = UserAddress::where('user_id', $userId)->get();
             return view('pc.mall.user.user_address', ['userAddress' => $userAddress]);
+        }*/
+        if (Auth::check()) {
+            $userAddress = Auth::user()->userAddress;
+            return view('pc.mall.user.user_address', ['userAddress' => $userAddress]);
         }
-
     }
 }

@@ -10,6 +10,8 @@
     Route::get('/', 'MallController@index')->name('mall.home');
 });*/
 
+require __DIR__ . '/auth.php';
+
 Route::get('/', 'MallController@index')->name('mall');
 
 Route::group(['namespace' => '\Mall', 'prefix' => 'user'], function () {

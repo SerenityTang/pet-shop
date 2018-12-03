@@ -11,10 +11,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@section('title'){{ config('global.title') }}@show</title>
 
-{{--bootstrap
-<link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">--}}
+    {{--bootstrap
+    <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('libs/layui/css/layui.css') }}" media="all">
 
-<!-- 样式 -->
+    {{--Font--}}
+    <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/iconfont/iconfont.css') }}">
+
+    <!-- 样式 -->
     <link href="{{ mix('css/mall_app.css') }}" rel="stylesheet">
 
     <link rel="shortcut icon" href="/bitbug_favicon.ico">
@@ -23,7 +28,7 @@
 </head>
 <body>
 <div id="app" class="{{ route_class() }}-page">
-    {{--@include('pc.mall.layouts.header')--}}
+    @include('pc.mall.layouts.header')
     <div class="container">
         {{--@include('pc.mall.layouts.slideshow')--}}
 
@@ -31,7 +36,8 @@
     </div>
     {{--@include('pc.layouts.main_footer')--}}
 </div>
-<script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
+{{--<script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>--}}
+<script type="text/javascript" src="{{ asset('libs/layui/layui.all.js') }}"></script>
 <!-- JS 脚本 -->
 <script src="{{ mix('js/app.js') }}"></script>
 </body>
