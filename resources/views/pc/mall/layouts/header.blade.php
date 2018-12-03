@@ -12,16 +12,19 @@
                         <span>请登录</span>
                     </a>
                 </li>
+                <span class="sep">|</span>
                 <li>
                     <a id="signup" href="{{ route('register') }}" target="_blank">
                         <span>免费注册</span>
                     </a>
                 </li>
+                <span class="sep">|</span>
                 <li>
                     <a href="{{ url('') }}" target="_blank">
                         <span>我的订单</span>
                     </a>
                 </li>
+                <span class="sep">|</span>
                 <li id="my-account">
                     <a href="javascript: void(0);" class="my-muchong">
                         <span style="padding-right: 26px;">我的慕宠<span class="triangle"></span></span>
@@ -33,7 +36,7 @@
                         <li><a href="{{ url('') }}" target="_blank">我的优惠券</a></li>
                     </ul>
                 </li>
-
+                <span class="sep">|</span>
                 <li id="shopping-cart">
                     <a href="{{ url('') }}" class="my-shopping" target="_blank">
                         <span><i class="iconfont icon-xiazai1 ico"></i>我的购物车(<span class="cart-item-num">0</span>)</span>
@@ -42,7 +45,7 @@
                         <li></li>
                     </ul>
                 </li>
-
+                <span class="sep">|</span>
                 <li id="customer-service">
                     <a href="javascript: void(0);" class="my-service">
                         <span style="padding-right: 26px;">客户服务<span class="triangle"></span></span>
@@ -54,7 +57,7 @@
                         <li><a href="{{ url('') }}" target="_blank">在线客服</a></li>
                     </ul>
                 </li>
-
+                <span class="sep">|</span>
                 <li id="mobile-shop">
                     <a href="javascript: void(0)"><span style="border:none; padding-left: 26px;">手机慕宠<span
                                     class="triangle"></span></span></a>
