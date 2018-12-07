@@ -1,41 +1,69 @@
-<link rel="stylesheet" type="text/css" href="{{ Helpers::asset('libs/wowslideshow/css/style.css') }}">
-
-<div id="dxs_slider">
-    <div class="ws_images">
-        <ul>
-            @foreach ($slideshows as $slideshow)
-                <li>
-                    <a target="_blank" href="{{ $slideshow->url }}">
-                        <img src="{{ Helpers::resourceImage($slideshow->image) }}" alt="{{ $slideshow->title }}" title="{{ $slideshow->title }}" id="{{ $slideshow->id }}" />
-                    </a>
-                    {!! $slideshow->description !!}
-                </li>
-            @endforeach
+<!-- Swiper -->
+<div class="carousel">
+    <div class="swiper-container">
+        <ul class="swiper-wrapper">
+            <li style="background-color: red" class="swiper-slide"><a class="big"
+                                                                      href="">{{--<img src="{{ asset('imgs/1.jpg') }}" alt="">--}}</a>
+            </li>
+            <li style="background-color: yellow" class="swiper-slide"><a class="big"
+                                                                         href="">{{--<img src="{{ asset('imgs/2.jpg') }}" alt="">--}}</a>
+            </li>
+            <li style="background-color: blue" class="swiper-slide"><a class="big"
+                                                                       href="">{{--<img src="{{ asset('imgs/3.jpg') }}" alt="">--}}</a>
+            </li>
+            <li style="background-color: green" class="swiper-slide"><a class="big"
+                                                                        href="">{{--<img src="{{ asset('imgs/4.jpg') }}" alt="">--}}</a>
+            </li>
+            <li style="background-color: pink" class="swiper-slide"><a class="big"
+                                                                        href="">{{--<img src="{{ asset('imgs/5.jpg') }}" alt="">--}}</a>
+            </li>
+            <li style="background-color: gray" class="swiper-slide"><a class="big"
+                                                                       href="">{{--<img src="{{ asset('imgs/6.jpg') }}" alt="">--}}</a>
+            </li>
         </ul>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next hide"></div>
+        <div class="swiper-button-prev hide"></div>
     </div>
-    <div class="ws_bullets">
-        <div>
-            <?php
-            $i=1;
-            foreach($slideshows as $slideshow){
-            ?>
-            <a href="#" title="{{ $slideshow->title }}">
-                    <span>
-                        <?php
-                        print $slideshow['image'];
-                        print $i;
-                        ?>
-                    </span>
-            </a>
-            <?php $i++;}?>
-        </div>
-    </div>
-    <div class="ws_shadow"></div>
 </div>
 
-<script src="{{ Helpers::asset('libs/wowslideshow/js/wowslider.js') }}" type="text/javascript"></script>
-<script type="text/javascript">
-    function ws_parallax(k,g,a){var c=jQuery;var f=c(this);var d=a.find(".ws_list");var b=k.parallax||0.25;var e=c("<div>").css({position:"absolute",top:0,left:0,width:"100%",height:"100%",overflow:"hidden"}).addClass("ws_effect ws_parallax").appendTo(a);function j(l){return Math.round(l*1000)/1000}var i=c("<div>").css({position:"absolute",left:0,top:0,overflow:"hidden",width:"100%",height:"100%",transform:"translate3d(0,0,0)"}).appendTo(e);var h=i.clone().appendTo(e);this.go=function(l,r,p){var s=c(g.get(r));s={width:s.width(),height:s.height(),marginTop:s.css("marginTop"),marginLeft:s.css("marginLeft")};p=p?1:-1;var n=c(g.get(r)).clone().css(s).appendTo(i);var o=c(g.get(l)).clone().css(s).appendTo(h);var m=a.width()||k.width;var q=a.height()||k.height;d.hide();wowAnimate(function(v){v=c.easing.swing(v);var x=j(p*v*m),u=j(p*(-m+v*m)),t=j(-p*m*b*v),w=j(p*m*b*(1-v));if(k.support.transform){i.css("transform","translate3d("+x+"px,0,0)");n.css("transform","translate3d("+t+"px,0,0)");h.css("transform","translate3d("+u+"px,0,0)");o.css("transform","translate3d("+w+"px,0,0)")}else{i.css("left",x);n.css("margin-left",t);h.css("left",u);o.css("margin-left",w)}},0,1,k.duration,function(){e.hide();n.remove();o.remove();f.trigger("effectEnd")})}}
-
-    jQuery("#dxs_slider").wowSlider({effect:"parallax",prev:"",next:"",duration:20*100,delay:40*100,width:1425,height:475,autoPlay:true,autoPlayVideo:false,playPause:true,stopOnHover:false,loop:false,bullets:1,caption:true,captionEffect:"parallax",controls:true,controlsThumb:false,responsive:2,fullScreen:false,gestures:2,onBeforeStep:0,images:0});
-</script>
+@section('footer')
+    <!-- Swiper JS -->
+    <script type="text/javascript" src="{{ asset('libs/swiper/js/swiper.min.js') }}"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            loop: true,         //循环
+            autoplay: {
+                delay: 3000,    //3秒自动切换一次
+            },
+            pagination: {       //分页
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {       //左右按钮
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+                hideOnClick: true,
+                hiddenClass: 'my-button-hidden',
+            },
+        });
+        //鼠标覆盖停止自动切换
+        $(".swiper-slide").mouseover(function (){
+            mySwiper.autoplay.stop();
+            mySwiper.navigation.$nextEl.removeClass('hide');
+            mySwiper.navigation.$prevEl.removeClass('hide');
+        }).mouseout(function (){
+            mySwiper.autoplay.start();
+            mySwiper.navigation.$nextEl.addClass('hide');
+            mySwiper.navigation.$prevEl.addClass('hide');
+        });
+        $('.swiper-button-next, .swiper-button-prev').mouseover(function () {
+            mySwiper.navigation.$nextEl.removeClass('hide');
+            mySwiper.navigation.$prevEl.removeClass('hide');
+        })
+    </script>
+@stop

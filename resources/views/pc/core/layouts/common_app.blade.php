@@ -19,8 +19,14 @@
     <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/iconfont/iconfont.css') }}">
 
+    @section('css')
+    @show
+
     <!-- 样式 -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    @section('style')
+    @show
 
     <link rel="shortcut icon" href="/bitbug_favicon.ico">
 

@@ -19,8 +19,17 @@
     <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/iconfont/iconfont.css') }}">
 
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="{{ asset('libs/swiper/css/swiper.min.css') }}">
+
+    @section('css')
+    @show
+
     <!-- 样式 -->
     <link href="{{ mix('css/mall_app.css') }}" rel="stylesheet">
+
+    @section('style')
+    @show
 
     <link rel="shortcut icon" href="/bitbug_favicon.ico">
 
@@ -29,9 +38,10 @@
 <body>
 <div id="app" class="{{ route_class() }}-page">
     @include('pc.mall.layouts.header')
-    <div class="container">
-        {{--@include('pc.mall.layouts.slideshow')--}}
 
+    @include('pc.mall.layouts.slideshow')
+
+    <div class="container">
         @yield('content')
     </div>
     {{--@include('pc.layouts.main_footer')--}}
@@ -40,5 +50,8 @@
 <script type="text/javascript" src="{{ asset('libs/layui/layui.all.js') }}"></script>
 <!-- JS 脚本 -->
 <script src="{{ mix('js/app.js') }}"></script>
+
+@section('footer')
+@show
 </body>
 </html>
