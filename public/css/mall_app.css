@@ -8826,6 +8826,7 @@ input::-ms-input-placeholder {
 }
 
 .head-nav .nav li.nav-left .allbtn ul li.category-item:hover {
+  cursor: pointer;
   /*控制一级菜单显示隐藏*/
 }
 
