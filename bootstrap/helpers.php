@@ -18,11 +18,13 @@ function route_class()
  */
 function sld_prefix($type)
 {
-    $url = \Illuminate\Support\Facades\URL::current();
+    $url = \Illuminate\Support\Facades\URL::current();      //当前完整路径
     $delimiter1 = explode('//', $url);
-    $delimiter2 = explode('.', $url);
+    $delimiter2 = explode('/', $delimiter1[1]);
+    $delimiter3 = explode('.', $url);
+    $domain = $delimiter1[0] . '//' . $delimiter2[0];       //去除 '/'后面部分
 
-    return str_replace($delimiter2[0], $delimiter1[0] . '//' . $type, $url);
+    return str_replace($delimiter3[0], $delimiter1[0] . '//' . $type, $domain);
 }
 
 /**

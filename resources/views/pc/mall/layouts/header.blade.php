@@ -7,17 +7,31 @@
 
         <ul class="user fr">
             <ul class="login fr">
-                <li>
-                    <a id="login" href="{{ route('login') }}" target="_blank">
-                        <span>请登录</span>
-                    </a>
-                </li>
-                <span class="sep">|</span>
-                <li>
-                    <a id="signup" href="{{ route('register') }}" target="_blank">
-                        <span>免费注册</span>
-                    </a>
-                </li>
+                @if(Auth::guest())
+                    <li>
+                        <a id="login" href="{{ route('login') }}">
+                            <span class="login-register">请登录</span>
+                        </a>
+                    </li>
+                    {{--<span class="sep">|</span>--}}
+                    <li>
+                        <a id="signup" href="{{ route('register') }}">
+                            <span class="login-register">免费注册</span>
+                        </a>
+                    </li>
+                @else
+                    <li id="account-info">
+                        <a href="javascript: void(0);" class="user-name">
+                            <span style="padding-right: 26px;" class="name">{{ \Illuminate\Support\Facades\Auth::user()->username }}<span class="triangle"></span></span>
+                        </a>
+                        <ul>
+                            <li><a href="{{ url('') }}" target="_blank"></a></li>
+                            <li><a href="{{ url('') }}" target="_blank"></a></li>
+                            <li><a href="{{ url('') }}" target="_blank"></a></li>
+                            <li><a href="{{ url('') }}" target="_blank"></a></li>
+                        </ul>
+                    </li>
+                @endif
                 <span class="sep">|</span>
                 <li>
                     <a href="{{ url('') }}" target="_blank">
@@ -60,7 +74,8 @@
                 </li>
                 <span class="sep">|</span>
                 <li id="mobile-shop">
-                    <a href="javascript: void(0)"><span style="border:none; padding-left: 26px;"><i class="iconfont icon-shouji ico" style="margin: 0 -23px 0 12px;"></i>手机慕宠<span
+                    <a href="javascript: void(0)"><span style="border:none; padding-left: 26px;"><i
+                                    class="iconfont icon-shouji ico" style="margin: 0 -23px 0 12px;"></i>手机慕宠<span
                                     class="triangle"></span></span></a>
                     <ul>
                         <li class="qrcode"><a href="javascript:void(0);" target="_blank"><img

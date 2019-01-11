@@ -8514,17 +8514,23 @@ input::-ms-input-placeholder {
   position: relative;
 }
 
+.head_top .user li a > span.login-register {
+  padding: 0 10px;
+}
+
 /*我的慕宠、购物车、客户服务*/
 
 #my-account,
 #shopping-cart,
-#customer-service {
+#customer-service,
+#account-info {
   position: relative;
 }
 
 #my-account:hover,
 #shopping-cart:hover,
-#customer-service:hover {
+#customer-service:hover,
+#account-info:hover {
   /*鼠标经过箭头背景色样式*/
   background-color: #fff;
   /*鼠标经过显示下拉列表*/
@@ -8534,25 +8540,34 @@ input::-ms-input-placeholder {
 
 #my-account:hover ul,
 #shopping-cart:hover ul,
-#customer-service:hover ul {
+#customer-service:hover ul,
+#account-info:hover ul {
   display: block;
 }
 
 #my-account:hover a.my-muchong,
 #my-account:hover a.my-shopping,
 #my-account:hover a.my-service,
+#my-account:hover a.user-name,
 #shopping-cart:hover a.my-muchong,
 #shopping-cart:hover a.my-shopping,
 #shopping-cart:hover a.my-service,
+#shopping-cart:hover a.user-name,
 #customer-service:hover a.my-muchong,
 #customer-service:hover a.my-shopping,
-#customer-service:hover a.my-service {
+#customer-service:hover a.my-service,
+#customer-service:hover a.user-name,
+#account-info:hover a.my-muchong,
+#account-info:hover a.my-shopping,
+#account-info:hover a.my-service,
+#account-info:hover a.user-name {
   border-bottom: 1px solid #fff;
 }
 
 #my-account:hover .triangle,
 #shopping-cart:hover .triangle,
-#customer-service:hover .triangle {
+#customer-service:hover .triangle,
+#account-info:hover .triangle {
   border-top: none;
   border-bottom: 4px solid #c2c2c2;
 }
@@ -8560,20 +8575,51 @@ input::-ms-input-placeholder {
 #my-account a.my-muchong,
 #my-account a.my-shopping,
 #my-account a.my-service,
+#my-account a.user-name,
 #shopping-cart a.my-muchong,
 #shopping-cart a.my-shopping,
 #shopping-cart a.my-service,
+#shopping-cart a.user-name,
 #customer-service a.my-muchong,
 #customer-service a.my-shopping,
-#customer-service a.my-service {
+#customer-service a.my-service,
+#customer-service a.user-name,
+#account-info a.my-muchong,
+#account-info a.my-shopping,
+#account-info a.my-service,
+#account-info a.user-name {
   margin-right: -1px;
   margin-left: -1px;
   border-bottom: 1px solid #dedede;
 }
 
+#my-account a.my-muchong span.name,
+#my-account a.my-shopping span.name,
+#my-account a.my-service span.name,
+#my-account a.user-name span.name,
+#shopping-cart a.my-muchong span.name,
+#shopping-cart a.my-shopping span.name,
+#shopping-cart a.my-service span.name,
+#shopping-cart a.user-name span.name,
+#customer-service a.my-muchong span.name,
+#customer-service a.my-shopping span.name,
+#customer-service a.my-service span.name,
+#customer-service a.user-name span.name,
+#account-info a.my-muchong span.name,
+#account-info a.my-shopping span.name,
+#account-info a.my-service span.name,
+#account-info a.user-name span.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100px;
+  display: inline-block;
+}
+
 #my-account .triangle,
 #shopping-cart .triangle,
-#customer-service .triangle {
+#customer-service .triangle,
+#account-info .triangle {
   position: absolute;
   right: 13px;
   top: 0px;
@@ -8588,7 +8634,8 @@ input::-ms-input-placeholder {
 
 #my-account ul,
 #shopping-cart ul,
-#customer-service ul {
+#customer-service ul,
+#account-info ul {
   display: none;
   position: absolute;
   top: 31px;
@@ -8606,7 +8653,8 @@ input::-ms-input-placeholder {
 
 #my-account ul li,
 #shopping-cart ul li,
-#customer-service ul li {
+#customer-service ul li,
+#account-info ul li {
   width: 78px;
   height: 32px;
   float: left;
@@ -8615,7 +8663,8 @@ input::-ms-input-placeholder {
 
 #my-account ul li a,
 #shopping-cart ul li a,
-#customer-service ul li a {
+#customer-service ul li a,
+#account-info ul li a {
   text-align: left;
 }
 
@@ -8811,7 +8860,7 @@ input::-ms-input-placeholder {
 .head-nav .nav li.nav-left .allbtn ul {
   z-index: 99999;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(255, 255, 255, 0.7);
   width: 190px;
   height: 484px;
   top: 36px;
@@ -8822,11 +8871,13 @@ input::-ms-input-placeholder {
 .head-nav .nav li.nav-left .allbtn ul li.category-item {
   height: 35px;
   line-height: 35px;
+  border-left: 2px solid transparent;
   /*二级导航隐藏*/
 }
 
 .head-nav .nav li.nav-left .allbtn ul li.category-item:hover {
   cursor: pointer;
+  border-left: 2px solid #4fb1f7;
   /*控制一级菜单显示隐藏*/
 }
 
@@ -8854,7 +8905,8 @@ input::-ms-input-placeholder {
   line-height: 36px;
   font-size: 14px;
   padding-left: 20px;
-  color: #fff;
+  color: #333;
+  font-weight: bold;
 }
 
 .head-nav .nav li.nav-left .allbtn ul li.category-item .category-detail {
