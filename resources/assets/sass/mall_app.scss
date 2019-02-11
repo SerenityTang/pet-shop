@@ -152,25 +152,18 @@ input::-ms-input-placeholder {
     margin-right: -1px;
     margin-left: -1px;
     border-bottom: 1px solid #dedede;
-    span.name{
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      width: 100px;
-      display: inline-block;
-    }
   }
   .triangle {
     position: absolute;
     right: 13px;
-    top: 0px;
-    display: inline-block;
-    vertical-align: top;
-    border-top: 4px solid #c2c2c2;
-    border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
-    content: "";
-    margin-top: 5px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    font-family: iconfont, sans-serif;
+    font-style: normal;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -179,7 +172,7 @@ input::-ms-input-placeholder {
     display: none;
     position: absolute;
     top: 31px;
-    left: 0;
+    left: -1px;
     background-color: #fff;
     z-index: 1000;
     width: 161px;
@@ -193,11 +186,43 @@ input::-ms-input-placeholder {
       width: 78px;
       height: 32px;
       float: left;
-      padding: 0 6px;
+      padding: 0 13px;
       a {
         text-align: left;
       }
     }
+  }
+}
+
+#account-info {
+  width: 110px;
+  padding: 0;
+  white-space: nowrap;
+  a.user-name {
+    position: relative;
+    z-index: 5;
+    display: block;
+    text-align: center;
+    height: 31px;
+    line-height: 29px;
+    i {
+      font-size: 16px;
+      vertical-align: 9px;
+    }
+    span.name {
+      display: inline-block;
+      width: auto;
+      _width: 75px;
+      max-width: 75px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      _zoom: 1;
+      //vertical-align: text-bottom;
+    }
+  }
+  ul {
+    width: 112px;
   }
 }
 
@@ -209,16 +234,31 @@ input::-ms-input-placeholder {
   }
 }
 
+#my-account, #customer-service {
+  a.my-muchong, a.my-service {
+    /*position: relative;
+    z-index: 5;
+    display: block;
+    text-align: center;*/
+    height: 31px;
+    line-height: 29px;
+    i {
+      font-size: 16px;
+      vertical-align: -1px;
+      padding-right: 10px;
+    }
+  }
+}
+
 /*手机慕宠*/
 #mobile-shop {
   position: relative;
-  padding-right: 8px;
+  a {
+    height: 31px;
+    line-height: 29px;
+  }
   &:hover {
     background-color: #fff;
-    .triangle {
-      border-top: none;
-      border-bottom: 4px solid #c2c2c2;
-    }
   }
   ul {
     display: none;
@@ -233,18 +273,6 @@ input::-ms-input-placeholder {
         height: 81px;
       }
     }
-  }
-  .triangle {
-    position: absolute;
-    right: 2px;
-    top: 0px;
-    display: inline-block;
-    vertical-align: top;
-    border-top: 4px solid #c2c2c2;
-    border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
-    content: "";
-    margin-top: 5px;
   }
 }
 

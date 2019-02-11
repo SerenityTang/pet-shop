@@ -8593,43 +8593,20 @@ input::-ms-input-placeholder {
   border-bottom: 1px solid #dedede;
 }
 
-#my-account a.my-muchong span.name,
-#my-account a.my-shopping span.name,
-#my-account a.my-service span.name,
-#my-account a.user-name span.name,
-#shopping-cart a.my-muchong span.name,
-#shopping-cart a.my-shopping span.name,
-#shopping-cart a.my-service span.name,
-#shopping-cart a.user-name span.name,
-#customer-service a.my-muchong span.name,
-#customer-service a.my-shopping span.name,
-#customer-service a.my-service span.name,
-#customer-service a.user-name span.name,
-#account-info a.my-muchong span.name,
-#account-info a.my-shopping span.name,
-#account-info a.my-service span.name,
-#account-info a.user-name span.name {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100px;
-  display: inline-block;
-}
-
 #my-account .triangle,
 #shopping-cart .triangle,
 #customer-service .triangle,
 #account-info .triangle {
   position: absolute;
   right: 13px;
-  top: 0px;
-  display: inline-block;
-  vertical-align: top;
-  border-top: 4px solid #c2c2c2;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-  content: "";
-  margin-top: 5px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  font-family: iconfont, sans-serif;
+  font-style: normal;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #my-account ul,
@@ -8639,7 +8616,7 @@ input::-ms-input-placeholder {
   display: none;
   position: absolute;
   top: 31px;
-  left: 0;
+  left: -1px;
   background-color: #fff;
   z-index: 1000;
   width: 161px;
@@ -8658,7 +8635,7 @@ input::-ms-input-placeholder {
   width: 78px;
   height: 32px;
   float: left;
-  padding: 0 6px;
+  padding: 0 13px;
 }
 
 #my-account ul li a,
@@ -8668,26 +8645,81 @@ input::-ms-input-placeholder {
   text-align: left;
 }
 
+#account-info {
+  width: 110px;
+  padding: 0;
+  white-space: nowrap;
+}
+
+#account-info a.user-name {
+  position: relative;
+  z-index: 5;
+  display: block;
+  text-align: center;
+  height: 31px;
+  line-height: 29px;
+}
+
+#account-info a.user-name i {
+  font-size: 16px;
+  vertical-align: 9px;
+}
+
+#account-info a.user-name span.name {
+  display: inline-block;
+  width: auto;
+  _width: 75px;
+  max-width: 75px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  _zoom: 1;
+}
+
+#account-info ul {
+  width: 112px;
+}
+
 #shopping-cart ul {
   width: 310px;
   height: 110px;
   z-index: 10000;
 }
 
+#my-account a.my-muchong,
+#my-account a.my-service,
+#customer-service a.my-muchong,
+#customer-service a.my-service {
+  /*position: relative;
+    z-index: 5;
+    display: block;
+    text-align: center;*/
+  height: 31px;
+  line-height: 29px;
+}
+
+#my-account a.my-muchong i,
+#my-account a.my-service i,
+#customer-service a.my-muchong i,
+#customer-service a.my-service i {
+  font-size: 16px;
+  vertical-align: -1px;
+  padding-right: 10px;
+}
+
 /*手机慕宠*/
 
 #mobile-shop {
   position: relative;
-  padding-right: 8px;
+}
+
+#mobile-shop a {
+  height: 31px;
+  line-height: 29px;
 }
 
 #mobile-shop:hover {
   background-color: #fff;
-}
-
-#mobile-shop:hover .triangle {
-  border-top: none;
-  border-bottom: 4px solid #c2c2c2;
 }
 
 #mobile-shop ul {
@@ -8705,19 +8737,6 @@ input::-ms-input-placeholder {
 
 #mobile-shop ul li .qrcode {
   height: 81px;
-}
-
-#mobile-shop .triangle {
-  position: absolute;
-  right: 2px;
-  top: 0px;
-  display: inline-block;
-  vertical-align: top;
-  border-top: 4px solid #c2c2c2;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-  content: "";
-  margin-top: 5px;
 }
 
 /*搜索栏层*/

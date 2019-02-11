@@ -22,13 +22,13 @@
                 @else
                     <li id="account-info">
                         <a href="javascript: void(0);" class="user-name">
-                            <span style="padding-right: 26px;" class="name">{{ \Illuminate\Support\Facades\Auth::user()->username }}<span class="triangle"></span></span>
+                            <span style="padding: 0 0 0 5px;"
+                                  class="name">{{ \Illuminate\Support\Facades\Auth::user()->username }}</span>
+                            <i class="iconfont icon-35_xiangxiajiantou"></i>
                         </a>
                         <ul>
-                            <li><a href="{{ url('') }}" target="_blank"></a></li>
-                            <li><a href="{{ url('') }}" target="_blank"></a></li>
-                            <li><a href="{{ url('') }}" target="_blank"></a></li>
-                            <li><a href="{{ url('') }}" target="_blank"></a></li>
+                            <li><a href="{{ url('') }}" target="_blank">个人中心</a></li>
+                            <li><a href="{{ url('logout') }}">退出登录</a></li>
                         </ul>
                     </li>
                 @endif
@@ -41,7 +41,8 @@
                 <span class="sep">|</span>
                 <li id="my-account">
                     <a href="javascript: void(0);" class="my-muchong">
-                        <span style="padding-right: 26px;">我的慕宠<span class="triangle"></span></span>
+                        <span style="padding: 0 0 0 15px;">我的慕宠</span>
+                        <i class="iconfont icon-35_xiangxiajiantou"></i>
                     </a>
                     <ul>
                         <li><a href="{{ url('') }}" target="_blank">我的慕钻</a></li>
@@ -63,7 +64,8 @@
                 <span class="sep">|</span>
                 <li id="customer-service">
                     <a href="javascript: void(0);" class="my-service">
-                        <span style="padding-right: 26px;">客户服务<span class="triangle"></span></span>
+                        <span style="padding: 0 0 0 15px;">客户服务</span>
+                        <i class="iconfont icon-35_xiangxiajiantou"></i>
                     </a>
                     <ul>
                         <li><a href="{{ url('') }}" target="_blank">帮助中心</a></li>
@@ -74,9 +76,13 @@
                 </li>
                 <span class="sep">|</span>
                 <li id="mobile-shop">
-                    <a href="javascript: void(0)"><span style="border:none; padding-left: 26px;"><i
-                                    class="iconfont icon-shouji ico" style="margin: 0 -23px 0 12px;"></i>手机慕宠<span
-                                    class="triangle"></span></span></a>
+                    <a href="javascript: void(0)">
+                        <span style="border:none; padding: 0 10px 0 26px;">
+                            <i class="iconfont icon-shouji ico" style="margin: 1px -23px 0 12px; font-size: 13px"></i>
+                            手机慕宠
+                            <i class="iconfont icon-35_xiangxiajiantou"></i>
+                        </span>
+                    </a>
                     <ul>
                         <li class="qrcode"><a href="javascript:void(0);" target="_blank"><img
                                         src="" alt=""></a></li>
