@@ -8535,7 +8535,6 @@ input::-ms-input-placeholder {
   background-color: #fff;
   /*鼠标经过显示下拉列表*/
   /*鼠标经过显示下拉列表下边框样式*/
-  /*鼠标经过箭头显示方向设置*/
 }
 
 #my-account:hover ul,
@@ -8564,14 +8563,6 @@ input::-ms-input-placeholder {
   border-bottom: 1px solid #fff;
 }
 
-#my-account:hover .triangle,
-#shopping-cart:hover .triangle,
-#customer-service:hover .triangle,
-#account-info:hover .triangle {
-  border-top: none;
-  border-bottom: 4px solid #c2c2c2;
-}
-
 #my-account a.my-muchong,
 #my-account a.my-shopping,
 #my-account a.my-service,
@@ -8591,22 +8582,6 @@ input::-ms-input-placeholder {
   margin-right: -1px;
   margin-left: -1px;
   border-bottom: 1px solid #dedede;
-}
-
-#my-account .triangle,
-#shopping-cart .triangle,
-#customer-service .triangle,
-#account-info .triangle {
-  position: absolute;
-  right: 13px;
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  line-height: 12px;
-  font-family: iconfont, sans-serif;
-  font-style: normal;
-  -webkit-text-stroke-width: .2px;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 #my-account ul,
