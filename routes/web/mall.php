@@ -11,8 +11,9 @@
 });*/
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/user.php';
 
-Route::get('/', 'MallController@index')->name('mall');
+Route::get('/', 'MallController@index')->name('home');
 
 Route::group(['namespace' => '\Mall', 'prefix' => 'user'], function () {
     Route::get('address', 'UserAddressController@index')->name('user.address');

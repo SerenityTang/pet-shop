@@ -92,9 +92,11 @@ class LoginController extends Controller
         } else {
             $result = User::where($this->username(), $request->all()[$this->username()])->first();
             if (!is_null($result)) {
+                //dd("登录账号未激活，请<a href=\"{{ email_facilitator('$result->email') }}\" class=\"go-email\">");
                 if ($result->user_status == false) {
-                    return $this->jsonResult('m400', 'There are incorect values in the form!',  '登录账号未激活，请<a href="{{ email_facilitator() }}" class="go-email">
-                前往邮箱</a> 验证 或 重新 <a href="javascript:void(0)" class="again-send">发送邮件</a> 进行账号激活！');
+                    $email_url = email_facilitator($result->email);
+                    return $this->jsonResult('m400', 'There are incorect values in the form!',
+                        "登录账号未激活，请<a href=\"$email_url\" class=\"go-email\"> 前往邮箱</a> 验证 或 重新 <a href=\"javascript:void(0)\" class=\"again-send\">发送邮件</a> 进行账号激活！");
                 } else {
                     return $this->jsonResult('m400', 'There are incorect values in the form!', '用户名或密码不正确');
                 }
