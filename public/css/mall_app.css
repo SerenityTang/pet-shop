@@ -8441,28 +8441,28 @@ input::-ms-input-placeholder {
 
 /*顶部导航层*/
 
-.head_top {
+.head-top {
   width: 100%;
   min-width: 1190px;
   background: #f3f3f3;
   border-bottom: 1px solid #dedede;
 }
 
-.head_top .inner {
+.head-top .inner {
   width: 1190px;
   height: 30px;
   margin: 0 auto;
 }
 
-.head_top .clearfix {
+.head-top .clearfix {
   zoom: 1;
 }
 
-.head_top .fl {
+.head-top .fl {
   float: left;
 }
 
-.head_top .tools li {
+.head-top .tools li {
   border: 1px solid #F3F3F3;
   border-bottom: none;
   float: left;
@@ -8472,15 +8472,15 @@ input::-ms-input-placeholder {
   z-index: 1;
 }
 
-.head_top .tools li a {
+.head-top .tools li a {
   color: #4fb1f7;
 }
 
-.head_top .fr {
+.head-top .fr {
   float: right;
 }
 
-.head_top .fr .sep {
+.head-top .fr .sep {
   margin: 0;
   float: left;
   color: #e5e5e5;
@@ -8489,7 +8489,7 @@ input::-ms-input-placeholder {
   font-weight: bolder;
 }
 
-.head_top .user li {
+.head-top .user li {
   float: left;
   height: 30px;
   line-height: 30px;
@@ -8499,22 +8499,22 @@ input::-ms-input-placeholder {
   z-index: 10;
 }
 
-.head_top .user li a {
+.head-top .user li a {
   display: inline-block;
 }
 
-.head_top .user li a i.ico {
+.head-top .user li a i.ico {
   float: left;
   margin: 0 -10px 0 12px;
   font-size: 14px;
 }
 
-.head_top .user li a > span {
+.head-top .user li a > span {
   padding: 0 16px;
   position: relative;
 }
 
-.head_top .user li a > span.login-register {
+.head-top .user li a > span.login-register {
   padding: 0 10px;
 }
 

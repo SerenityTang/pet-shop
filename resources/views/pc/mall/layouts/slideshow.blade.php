@@ -2,23 +2,23 @@
 <div class="carousel">
     <div class="swiper-container">
         <ul class="swiper-wrapper">
-            <li style="background-color: red" class="swiper-slide"><a class="big"
-                                                                      href="">{{--<img src="{{ asset('imgs/1.jpg') }}" alt="">--}}</a>
+            <li style="background-color: red" class="swiper-slide">
+                <a class="big" href="">{{--<img src="{{ asset('imgs/1.jpg') }}" alt="">--}}</a>
             </li>
-            <li style="background-color: yellow" class="swiper-slide"><a class="big"
-                                                                         href="">{{--<img src="{{ asset('imgs/2.jpg') }}" alt="">--}}</a>
+            <li style="background-color: yellow" class="swiper-slide">
+                <a class="big" href="">{{--<img src="{{ asset('imgs/2.jpg') }}" alt="">--}}</a>
             </li>
-            <li style="background-color: blue" class="swiper-slide"><a class="big"
-                                                                       href="">{{--<img src="{{ asset('imgs/3.jpg') }}" alt="">--}}</a>
+            <li style="background-color: blue" class="swiper-slide">
+                <a class="big" href="">{{--<img src="{{ asset('imgs/3.jpg') }}" alt="">--}}</a>
             </li>
-            <li style="background-color: green" class="swiper-slide"><a class="big"
-                                                                        href="">{{--<img src="{{ asset('imgs/4.jpg') }}" alt="">--}}</a>
+            <li style="background-color: green" class="swiper-slide">
+                <a class="big" href="">{{--<img src="{{ asset('imgs/4.jpg') }}" alt="">--}}</a>
             </li>
-            <li style="background-color: pink" class="swiper-slide"><a class="big"
-                                                                        href="">{{--<img src="{{ asset('imgs/5.jpg') }}" alt="">--}}</a>
+            <li style="background-color: pink" class="swiper-slide">
+                <a class="big" href="">{{--<img src="{{ asset('imgs/5.jpg') }}" alt="">--}}</a>
             </li>
-            <li style="background-color: gray" class="swiper-slide"><a class="big"
-                                                                       href="">{{--<img src="{{ asset('imgs/6.jpg') }}" alt="">--}}</a>
+            <li style="background-color: gray" class="swiper-slide">
+                <a class="big" href="">{{--<img src="{{ asset('imgs/6.jpg') }}" alt="">--}}</a>
             </li>
         </ul>
         <!-- Add Pagination -->

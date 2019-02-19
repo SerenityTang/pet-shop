@@ -1,16 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Serenity_Tang
+ * Date: 2019/2/18
+ * Time: 下午10:44
+ */
 
-namespace App\Http\Controllers\User;
+namespace App\Traits;
 
+
+use Illuminate\Http\Request;
 use App\Models\EmailRecord;
 use App\Models\User;
 use App\Services\Mail\CommonSendMail;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+trait MailTrait
 {
     /**
      * 发送邮件

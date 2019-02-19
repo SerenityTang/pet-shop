@@ -37,9 +37,9 @@
 </head>
 <body>
 <div id="app" class="{{ route_class() }}-page">
-    @include('pc.mall.layouts.header')
+    @include('pc.mall.layouts.topbar')
 
-    @include('pc.mall.layouts.slideshow')
+    @yield('top')
 
     <div class="container">
         @yield('content')
