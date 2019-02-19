@@ -26,7 +26,7 @@ class CommonSendMail
     {
         $code = sha1($user->id . strtotime(Carbon::now()), false);  //邮件验证链接code
         $expire_time = date('Y-m-d H:i:s', strtotime('+' . config('global.email.expiration.time') . ' hour'));  //过期时间
-        $url = url('/user/activate/email') . '/?code=' . $code;  //激活链接
+        $url = url('/user/activate/email') . '?code=' . $code;  //激活链接
 
         //向指定邮箱发送邮件
         Mail::to($user->email)->send(new CommonMail($user, $url, $subject));

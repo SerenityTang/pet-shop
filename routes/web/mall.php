@@ -10,4 +10,12 @@
     Route::get('/', 'MallController@index')->name('mall.home');
 });*/
 
-Route::get('/', 'MallController@index')->name('mall.home');
+require __DIR__ . '/auth.php';
+require __DIR__ . '/user.php';
+
+Route::get('/', 'MallController@index')->name('home');
+
+Route::group(['namespace' => '\User', 'prefix' => 'user'], function () {
+    Route::get('/index', 'UserController@index')->name('user.index');
+    Route::get('/address', 'UserAddressController@index')->name('user.address');
+});

@@ -8,8 +8,8 @@
                 <div class="aw-user-nav active hidden-xs hidden-sm">
                     @if(Auth::guest())
                         <!-- 登录&注册栏 -->
-                        <a href="{{ url('login') }}" class="btn btn-hollow active" target="_blank">登录</a>
-                        <a href="{{ url('register') }}" class="btn btn-primary" target="_blank">注册</a>
+                        <a href="{{ url('login') }}" class="btn btn-hollow active">登录</a>
+                        <a href="{{ url('register') }}" class="btn btn-primary">注册</a>
                         <!-- end 登录&注册栏 -->
                     @else
 

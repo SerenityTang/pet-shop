@@ -11,7 +11,7 @@ Route::group(['namespace' => '\Auth'], function (){
     Route::post('login', 'LoginController@login');                                          //登录处理
     Route::get('register', 'RegisterController@showRegistrationForm')->name('register');    //注册页面
     Route::post('register', 'RegisterController@register');                                 //注册处理
-    Route::post('logout', 'LoginController@logout')->name('logout');                        //登出
+    Route::any('logout', 'LoginController@logout')->name('logout');                         //登出
 
     Route::get('forgot/password', 'ForgotPasswordController@showForgotPasswordForm')->name('forgot.password');
     Route::post('forgot/password', 'ForgotPasswordController@forgotPassword');
