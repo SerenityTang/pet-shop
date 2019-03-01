@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="@section('keywords'){{ config('global.keywords') }}@show">
-    <meta name="description" content="@section('description'){{ config('global.description') }}@show">
+    <meta name="keywords" content="@section('keywords'){{ config('global.mall_keywords') }}@show">
+    <meta name="description" content="@section('description'){{ config('global.mall_description') }}@show">
     <meta name="author" content="{{ config('global.author') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@section('title'){{ config('global.title') }}@show</title>
+    <title>@section('title'){{ config('global.mall_title') }}@show</title>
 
     {{--bootstrap
     <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">--}}
@@ -21,6 +21,8 @@
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="{{ asset('libs/swiper/css/swiper.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('libs/zeroModal/zeroModal.css') }}">
 
     @section('css')
     @show
@@ -37,17 +39,18 @@
 </head>
 <body>
 <div id="app" class="{{ route_class() }}-page">
-    @include('pc.mall.layouts.topbar')
+    @include('pc.mall.layouts.top_bar')
 
     @yield('top')
 
-    <div class="container">
+    <div class="container container-main">
         @yield('content')
     </div>
     {{--@include('pc.layouts.main_footer')--}}
 </div>
 {{--<script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>--}}
 <script type="text/javascript" src="{{ asset('libs/layui/layui.all.js') }}"></script>
+<script type="text/javascript" src="{{ asset('libs/zeroModal/zeroModal.min.js') }}"></script>
 <!-- JS 脚本 -->
 <script src="{{ mix('js/app.js') }}"></script>
 

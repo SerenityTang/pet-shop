@@ -6,7 +6,7 @@
  * Time: 下午3:19
  */
 
-namespace App\Models;
+namespace App\Models\Core;
 
 use App\Models\Traits\UuidModelTrait;
 use Illuminate\Database\Eloquent\Model;

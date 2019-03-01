@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Traits\ErrorTrait;
+use App\Traits\JsonErrorTrait;
 use App\Traits\MailTrait;
 use App\Traits\ResponseTrait;
 use App\Traits\SuccessTrait;
@@ -13,5 +14,5 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, ResponseTrait, SuccessTrait, ErrorTrait, MailTrait;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, ResponseTrait, SuccessTrait, ErrorTrait, MailTrait, JsonErrorTrait;
 }

@@ -21,9 +21,8 @@
                     </li>
                 @else
                     <li id="account-info">
-                        <a href="javascript: void(0);" class="user-name">
-                            <span style="padding: 0 0 0 5px;"
-                                  class="name">{{ \Illuminate\Support\Facades\Auth::user()->username }}</span>
+                        <a href="{{ url('/user/index') }}" class="user-name" target="_blank">
+                            <span style="padding: 0 0 0 5px;" class="name">{{ \Illuminate\Support\Facades\Auth::user()->username }}</span>
                             <i class="iconfont icon-35_xiangxiajiantou"></i>
                         </a>
                         <ul>

@@ -46,6 +46,6 @@ class User extends CoreUser
      */
     public function userAddress()
     {
-        return $this->hasMany(UserAddress::class, 'user_id', 'id');
+        return $this->hasMany(\App\Models\Mall\UserAddress::class, 'user_id', 'id');
     }
 }

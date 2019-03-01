@@ -9,8 +9,14 @@
 namespace App\Repositories\Core;
 
 
+use App\Traits\ErrorTrait;
+use App\Traits\JsonErrorTrait;
+use App\Traits\ResponseTrait;
+
 class CoreRepository
 {
+    use ErrorTrait, ResponseTrait, JsonErrorTrait;
+
     protected $model;
 
     public function __construct($model)

@@ -6,10 +6,10 @@
  * Time: 下午10:56
  */
 
-namespace App\Repositories;
+namespace App\Repositories\Mall\User;
 
 
-use App\Models\User\User;
+use App\Models\User;
 use App\Repositories\Core\CoreRepository;
 
 class UserRepository extends CoreRepository

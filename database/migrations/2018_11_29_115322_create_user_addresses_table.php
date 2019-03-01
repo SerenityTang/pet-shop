@@ -22,9 +22,11 @@ class CreateUserAddressesTable extends Migration
             $table->string('province', 50)->comment('省');
             $table->string('city', 50)->comment('市');
             $table->string('district', 50)->comment('区/县');
+            $table->string('town', 50)->comment('乡镇');
             $table->string('address')->comment('详细地址');
             $table->string('zip', 20)->nullable()->comment('邮政编码');
             $table->string('address_tag', 20)->nullable()->comment('地址标签');
+            $table->boolean('default_address')->default(false)->comment('默认地址：0->否，1->是');
             $table->dateTime('last_used_at')->nullable()->comment('最后使用时间');
 
             $table->timestamps();
