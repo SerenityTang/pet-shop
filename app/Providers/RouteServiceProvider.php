@@ -37,16 +37,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $sld_prefix = explode('.', $_SERVER['HTTP_HOST'])[0];
-        if (config('route.admin_url') == $sld_prefix) {
-            $this->mapAdminRoutes();
-        } elseif (config('route.home_url') == $sld_prefix) {
-            $this->mapWebRoutes();
-        } elseif (config('route.mall_url') == $sld_prefix) {
-            $this->mapMallRoutes();
-        } elseif (config('route.api_url') == $sld_prefix) {
-            $this->mapApiRoutes();
-        }
+
     }
 
     /**
